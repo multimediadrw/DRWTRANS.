@@ -8,123 +8,85 @@ import { Phone, ChevronDown } from 'lucide-react'
 export default function Navigation() {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
 
-  const toggleDropdown = (menu: string) => {
-    setActiveDropdown(activeDropdown === menu ? null : menu)
-  }
-
   return (
-    <nav className="bg-white shadow-sm sticky top-0 z-50">
+    <nav className="bg-white shadow-md sticky top-0 z-50 border-b border-gray-200">
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3">
-            <Image src="/logo.png" alt="DRWTRANS" width={60} height={60} className="object-contain" />
+          <Link href="/" className="flex items-center gap-2">
+            <Image src="/logo.png" alt="DRWTRANS" width={50} height={50} className="object-contain" />
           </Link>
 
           {/* Desktop Menu */}
           <div className="hidden lg:flex items-center gap-6">
             {/* Produk dan Layanan */}
             <div className="relative group">
-              <button 
-                className="flex items-center gap-1 text-gray-700 hover:text-purple-600 font-medium transition-colors py-2"
-                onClick={() => toggleDropdown('produk')}
-              >
-                Produk dan Layanan
+              <button className="flex items-center gap-1 text-gray-700 hover:text-royal-purple font-medium transition-colors py-2 text-sm">
+                Produk & Layanan
                 <ChevronDown className="h-4 w-4" />
               </button>
-              <div className="absolute top-full left-0 mt-2 w-48 bg-white shadow-lg rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
-                <Link href="/bisnis" className="block px-4 py-3 text-gray-700 hover:bg-purple-50 hover:text-purple-600 first:rounded-t-lg">
+              <div className="absolute top-full left-0 mt-1 w-44 bg-white shadow-xl rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all border border-gray-100">
+                <Link href="/bisnis" className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-royal-purple hover:text-white first:rounded-t-lg transition-colors">
                   Bisnis
                 </Link>
-                <Link href="/pribadi" className="block px-4 py-3 text-gray-700 hover:bg-purple-50 hover:text-purple-600 last:rounded-b-lg">
+                <Link href="/pribadi" className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-royal-purple hover:text-white last:rounded-b-lg transition-colors">
                   Pribadi
                 </Link>
               </div>
             </div>
 
-            {/* Blog */}
-            <Link href="/blog" className="text-orange-500 hover:text-orange-600 font-medium transition-colors">
-              Blog
-            </Link>
-
-            {/* Promo */}
-            <Link href="/promo" className="text-gray-700 hover:text-purple-600 font-medium transition-colors">
-              Promo
-            </Link>
-
             {/* Tentang Kami */}
             <div className="relative group">
-              <button 
-                className="flex items-center gap-1 text-gray-700 hover:text-purple-600 font-medium transition-colors py-2"
-                onClick={() => toggleDropdown('tentang')}
-              >
+              <button className="flex items-center gap-1 text-gray-700 hover:text-royal-purple font-medium transition-colors py-2 text-sm">
                 Tentang Kami
                 <ChevronDown className="h-4 w-4" />
               </button>
-              <div className="absolute top-full left-0 mt-2 w-56 bg-white shadow-lg rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
-                <Link href="/profil" className="block px-4 py-3 text-gray-700 hover:bg-purple-50 hover:text-purple-600 first:rounded-t-lg">
-                  Profil
+              <div className="absolute top-full left-0 mt-1 w-52 bg-white shadow-xl rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all border border-gray-100">
+                <Link href="/profil" className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-royal-purple hover:text-white first:rounded-t-lg transition-colors">
+                  Profil Perusahaan
                 </Link>
-                <Link href="/armada" className="block px-4 py-3 text-gray-700 hover:bg-purple-50 hover:text-purple-600">
-                  Armada
+                <Link href="/armada" className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-royal-purple hover:text-white transition-colors">
+                  Armada Kami
                 </Link>
-                <Link href="/penghargaan" className="block px-4 py-3 text-gray-700 hover:bg-purple-50 hover:text-purple-600 last:rounded-b-lg">
-                  SMART Protocol Penghargaan
+                <Link href="/penghargaan" className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-royal-purple hover:text-white last:rounded-b-lg transition-colors">
+                  Penghargaan
                 </Link>
               </div>
             </div>
 
-            {/* Karir */}
-            <Link href="/karir" className="text-gray-700 hover:text-purple-600 font-medium transition-colors">
-              Karir
+            {/* Promo */}
+            <Link href="/promo" className="text-gray-700 hover:text-royal-purple font-medium transition-colors text-sm">
+              Promo
             </Link>
 
             {/* Pusat Bantuan */}
             <div className="relative group">
-              <button 
-                className="flex items-center gap-1 text-gray-700 hover:text-purple-600 font-medium transition-colors py-2"
-                onClick={() => toggleDropdown('bantuan')}
-              >
-                Pusat Bantuan
+              <button className="flex items-center gap-1 text-gray-700 hover:text-royal-purple font-medium transition-colors py-2 text-sm">
+                Bantuan
                 <ChevronDown className="h-4 w-4" />
               </button>
-              <div className="absolute top-full left-0 mt-2 w-48 bg-white shadow-lg rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
-                <Link href="/faq" className="block px-4 py-3 text-gray-700 hover:bg-purple-50 hover:text-purple-600 first:rounded-t-lg">
+              <div className="absolute top-full left-0 mt-1 w-44 bg-white shadow-xl rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all border border-gray-100">
+                <Link href="/faq" className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-royal-purple hover:text-white first:rounded-t-lg transition-colors">
                   FAQ
                 </Link>
-                <Link href="/lokasi-cabang" className="block px-4 py-3 text-gray-700 hover:bg-purple-50 hover:text-purple-600">
+                <Link href="/lokasi-cabang" className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-royal-purple hover:text-white transition-colors">
                   Lokasi Cabang
                 </Link>
-                <Link href="/hubungi-kami" className="block px-4 py-3 text-gray-700 hover:bg-purple-50 hover:text-purple-600 last:rounded-b-lg">
+                <Link href="/hubungi-kami" className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-royal-purple hover:text-white last:rounded-b-lg transition-colors">
                   Hubungi Kami
                 </Link>
               </div>
             </div>
 
-            {/* Pemesanan Button */}
-            <Link 
-              href="/pemesanan" 
-              className="border-2 border-blue-600 text-blue-600 px-6 py-2 rounded-full font-semibold hover:bg-blue-600 hover:text-white transition-all"
-            >
-              Pemesanan
-            </Link>
-
             {/* Call Center Button */}
             <a 
               href="tel:08112050800" 
-              className="bg-blue-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-blue-700 transition-all flex items-center gap-2"
+              className="bg-royal-purple text-white px-5 py-2 rounded-lg font-semibold hover:bg-royal-purple-dark transition-all flex items-center gap-2 text-sm shadow-md"
             >
-              <Phone className="h-5 w-5" />
-              Call Center <span className="text-orange-400">0811-2050-800</span>
+              <Phone className="h-4 w-4" />
+              0811-2050-800
             </a>
           </div>
-
-          {/* Mobile Menu Button */}
-          <button className="lg:hidden text-gray-700">
-            <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          </button>
         </div>
       </div>
     </nav>

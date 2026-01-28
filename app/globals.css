@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root {
+    --royal-purple: #2E1065;
+    --royal-purple-dark: #1E0B43;
+    --royal-purple-light: #4C1D95;
+    --amber-gold: #F59E0B;
+    --amber-gold-dark: #D97706;
+  }
+}
