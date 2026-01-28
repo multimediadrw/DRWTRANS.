@@ -1,10 +1,13 @@
 'use client'
 
+import { useState } from 'react'
 import Navigation from '../components/Navigation'
+import FleetGalleryModal from '../components/FleetGalleryModal'
 import Image from 'next/image'
 import { Users, Wind, Tv, Wifi, Shield, Zap, Coffee, Luggage, MapPin } from 'lucide-react'
 
 export default function ArmadaPage() {
+  const [selectedFleet, setSelectedFleet] = useState<{ name: string; image: string } | null>(null)
   const fleets = [
     {
       name: 'Big Bus 50 Seats',
@@ -96,7 +99,10 @@ export default function ArmadaPage() {
           {fleets.map((fleet, index) => (
             <div key={index} className="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 active:scale-98 transition-transform">
               {/* Hero Image */}
-              <div className="relative h-48">
+              <div 
+                className="relative h-48 cursor-pointer active:opacity-90 transition-opacity"
+                onClick={() => setSelectedFleet({ name: fleet.name, image: fleet.image })}
+              >
                 <Image 
                   src={fleet.image}
                   alt={fleet.name}
@@ -104,6 +110,12 @@ export default function ArmadaPage() {
                   className="object-cover"
                   priority={index === 0}
                 />
+                {/* Tap to View Overlay */}
+                <div className="absolute inset-0 bg-black/0 hover:bg-black/10 transition-colors flex items-center justify-center">
+                  <div className="bg-white/90 backdrop-blur-sm px-3 py-1.5 rounded-full text-xs font-semibold text-purple-900 opacity-0 group-hover:opacity-100 transition-opacity">
+                    Tap untuk detail
+                  </div>
+                </div>
                 {fleet.badge && (
                   <div className="absolute top-3 right-3 bg-amber-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
                     {fleet.badge}
@@ -288,6 +300,14 @@ export default function ArmadaPage() {
           </div>
         </div>
       </section>
+
+      {/* Fleet Gallery Modal */}
+      <FleetGalleryModal
+        isOpen={selectedFleet !== null}
+        onClose={() => setSelectedFleet(null)}
+        fleetName={selectedFleet?.name || ''}
+        posterImage={selectedFleet?.image || ''}
+      />
     </div>
   )
 }

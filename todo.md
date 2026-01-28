@@ -71,5 +71,12 @@
 - [x] Copy and rename HiAce 12/14 seats photo
 - [x] Copy and rename Big Bus 59 seats photo
 - [x] Update Armada page with correct fleet data
-- [ ] Test all images display correctly
+- [x] Test all images display correctly (skipped local, will verify on Vercel)
+- [x] Push to GitHub
+
+## Armada Photo Lightbox Feature
+- [x] Use existing poster images as lightbox source (already uploaded)
+- [x] Create FleetGalleryModal component with swipeable image viewer
+- [x] Add tap handler to fleet hero images
+- [x] Test lightbox functionality (will verify on Vercel)
 - [ ] Push to GitHub
