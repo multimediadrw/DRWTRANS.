@@ -2,9 +2,60 @@
 
 import Navigation from '../components/Navigation'
 import Image from 'next/image'
-import { Users, Wind, Tv, Wifi, Shield, Zap, Coffee, Luggage } from 'lucide-react'
+import { Users, Wind, Tv, Wifi, Shield, Zap, Coffee, Luggage, MapPin } from 'lucide-react'
 
 export default function ArmadaPage() {
+  const fleets = [
+    {
+      name: 'Big Bus 50 Seats',
+      image: '/armada/big-bus-50-seats.jpg',
+      capacity: '50 penumpang',
+      type: 'Mercedes Benz 1626 Air Suspension',
+      features: ['AC Central', 'TV & Audio System', 'USB Charging', 'Reclining Seats'],
+      price: 'Mulai Rp 3.9jt',
+      gradient: 'from-purple-600 to-purple-800'
+    },
+    {
+      name: 'Big Bus 47 Seats + Toilet',
+      image: '/armada/big-bus-47-seats-toilet.jpg',
+      capacity: '47 penumpang + Toilet',
+      type: 'Mercedes Benz 1626 Air Suspension',
+      features: ['AC Central', 'Toilet', 'TV & Audio System', 'USB Charging'],
+      price: 'Mulai Rp 3.9jt',
+      gradient: 'from-purple-600 to-purple-800',
+      badge: 'TOILET'
+    },
+    {
+      name: 'Big Bus 59 Seats',
+      image: '/armada/big-bus-59-seats.jpg',
+      capacity: '59 penumpang (Double Decker)',
+      type: 'Mercedes Benz 1626 Air Suspension',
+      features: ['AC Central', 'Double Decker', 'TV & Audio', 'Luxury Seats'],
+      price: 'Mulai Rp 3.9jt',
+      gradient: 'from-purple-700 to-purple-900',
+      badge: 'DOUBLE DECKER'
+    },
+    {
+      name: 'Medium Bus 35 Seats',
+      image: '/armada/medium-bus-35-seats.jpg',
+      capacity: '35 penumpang',
+      type: 'Mercedes Benz OF 917',
+      features: ['AC', 'Audio System', 'Reclining Seats', 'USB Charging'],
+      price: 'Mulai Rp 2.8jt',
+      gradient: 'from-purple-500 to-purple-700'
+    },
+    {
+      name: 'HiAce 12/14 Seats',
+      image: '/armada/hiace-12-14-seats.jpg',
+      capacity: '12-14 penumpang',
+      type: 'Toyota HiAce Commuter 2020',
+      features: ['AC', 'Audio System', 'Comfortable Seats', 'Compact Size'],
+      price: 'Mulai Rp 1.5jt',
+      gradient: 'from-orange-500 to-orange-700',
+      badge: 'POPULER'
+    },
+  ]
+
   const facilities = {
     safety: [
       { name: 'Kotak P3K', image: '/facilities/first-aid-box.jpg', icon: Shield },
@@ -25,255 +76,214 @@ export default function ArmadaPage() {
   }
 
   return (
-    <div className="min-h-screen bg-white">
-      <Navigation />
-      
-      <section className="bg-gradient-to-r from-royal-purple-dark to-royal-purple text-white py-20">
-        <div className="container mx-auto px-4">
-          <h1 className="text-5xl font-bold mb-4">Armada Kami</h1>
-          <p className="text-xl text-gray-200">Kendaraan terawat dengan standar keamanan terjamin</p>
+    <div className="min-h-screen bg-gray-50 pb-20">
+      {/* Header */}
+      <div className="bg-gradient-to-br from-purple-900 via-purple-800 to-purple-900 text-white pt-safe">
+        <div className="container px-4 py-8">
+          <div className="flex items-center justify-between mb-6">
+            <div>
+              <h1 className="text-2xl font-bold mb-1">Armada Kami</h1>
+              <p className="text-purple-200 text-sm">Kendaraan terawat & terpercaya</p>
+            </div>
+            <MapPin className="h-8 w-8 text-purple-300" />
+          </div>
         </div>
-      </section>
+      </div>
 
       {/* Fleet Cards */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {/* Big Bus */}
-            <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-200">
-              <div className="h-48 bg-gradient-to-br from-royal-purple-dark to-royal-purple"></div>
-              <div className="p-6">
-                <h3 className="text-2xl font-bold mb-3 text-royal-purple">Big Bus 50 Seat</h3>
-                <p className="text-gray-600 mb-4">Ideal untuk rombongan besar dan perjalanan jarak jauh</p>
-                <div className="space-y-2 mb-4">
-                  <div className="flex items-center gap-2 text-gray-700">
-                    <Users className="h-5 w-5 text-amber-gold" />
-                    <span>Kapasitas: 50 penumpang</span>
+      <section className="container px-4 -mt-4">
+        <div className="space-y-4">
+          {fleets.map((fleet, index) => (
+            <div key={index} className="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 active:scale-98 transition-transform">
+              {/* Hero Image */}
+              <div className="relative h-48">
+                <Image 
+                  src={fleet.image}
+                  alt={fleet.name}
+                  fill
+                  className="object-cover"
+                  priority={index === 0}
+                />
+                {fleet.badge && (
+                  <div className="absolute top-3 right-3 bg-amber-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
+                    {fleet.badge}
                   </div>
-                  <div className="flex items-center gap-2 text-gray-700">
-                    <Wind className="h-5 w-5 text-amber-gold" />
-                    <span>AC Central</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-gray-700">
-                    <Tv className="h-5 w-5 text-amber-gold" />
-                    <span>TV & Audio System</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-gray-700">
-                    <Wifi className="h-5 w-5 text-amber-gold" />
-                    <span>USB Charging Port</span>
-                  </div>
-                </div>
-                <p className="text-2xl font-bold text-amber-gold mb-4">Rp 3.5jt<span className="text-sm text-gray-500">/hari</span></p>
-                <a href="tel:08112050800" className="block text-center bg-royal-purple hover:bg-royal-purple-dark text-white py-3 rounded-lg font-semibold transition-all">
-                  Hubungi Kami
-                </a>
+                )}
               </div>
-            </div>
 
-            {/* Medium Bus */}
-            <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-200">
-              <div className="h-48 bg-gradient-to-br from-royal-purple to-royal-purple-light"></div>
-              <div className="p-6">
-                <h3 className="text-2xl font-bold mb-3 text-royal-purple">Medium Bus 31 Seat</h3>
-                <p className="text-gray-600 mb-4">Sempurna untuk grup sedang dan city tour</p>
-                <div className="space-y-2 mb-4">
-                  <div className="flex items-center gap-2 text-gray-700">
-                    <Users className="h-5 w-5 text-amber-gold" />
-                    <span>Kapasitas: 31 penumpang</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-gray-700">
-                    <Wind className="h-5 w-5 text-amber-gold" />
-                    <span>AC</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-gray-700">
-                    <Tv className="h-5 w-5 text-amber-gold" />
-                    <span>Audio System</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-gray-700">
-                    <Wifi className="h-5 w-5 text-amber-gold" />
-                    <span>Reclining Seats</span>
-                  </div>
-                </div>
-                <p className="text-2xl font-bold text-amber-gold mb-4">Rp 2.5jt<span className="text-sm text-gray-500">/hari</span></p>
-                <a href="tel:08112050800" className="block text-center bg-royal-purple hover:bg-royal-purple-dark text-white py-3 rounded-lg font-semibold transition-all">
-                  Hubungi Kami
-                </a>
-              </div>
-            </div>
+              {/* Content */}
+              <div className="p-5">
+                <h3 className="text-xl font-bold text-purple-900 mb-1">{fleet.name}</h3>
+                <p className="text-sm text-gray-500 mb-3">{fleet.type}</p>
 
-            {/* HiAce */}
-            <div className="bg-white rounded-2xl shadow-xl overflow-hidden border-2 border-amber-gold relative">
-              <div className="absolute top-4 right-4 bg-amber-gold text-white px-3 py-1 rounded-full text-xs font-bold z-10">
-                POPULER
-              </div>
-              <div className="h-48 bg-gradient-to-br from-amber-gold to-amber-gold-dark"></div>
-              <div className="p-6">
-                <h3 className="text-2xl font-bold mb-3 text-royal-purple">Toyota HiAce</h3>
-                <p className="text-gray-600 mb-4">Nyaman untuk keluarga dan grup kecil</p>
-                <div className="space-y-2 mb-4">
-                  <div className="flex items-center gap-2 text-gray-700">
-                    <Users className="h-5 w-5 text-amber-gold" />
-                    <span>Kapasitas: 14 penumpang</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-gray-700">
-                    <Wind className="h-5 w-5 text-amber-gold" />
-                    <span>AC</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-gray-700">
-                    <Tv className="h-5 w-5 text-amber-gold" />
-                    <span>Audio System</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-gray-700">
-                    <Wifi className="h-5 w-5 text-amber-gold" />
-                    <span>Comfortable Seats</span>
-                  </div>
+                <div className="flex items-center gap-2 mb-4 text-purple-700">
+                  <Users className="h-4 w-4" />
+                  <span className="text-sm font-semibold">{fleet.capacity}</span>
                 </div>
-                <p className="text-2xl font-bold text-amber-gold mb-4">Rp 1.8jt<span className="text-sm text-gray-500">/hari</span></p>
-                <a href="tel:08112050800" className="block text-center bg-amber-gold hover:bg-amber-gold-dark text-white py-3 rounded-lg font-semibold transition-all">
-                  Hubungi Kami
-                </a>
+
+                {/* Features Grid */}
+                <div className="grid grid-cols-2 gap-2 mb-4">
+                  {fleet.features.map((feature, idx) => (
+                    <div key={idx} className="flex items-center gap-1.5 text-xs text-gray-600">
+                      <div className="w-1.5 h-1.5 rounded-full bg-amber-500"></div>
+                      <span>{feature}</span>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Price & CTA */}
+                <div className="flex items-center justify-between pt-4 border-t border-gray-100">
+                  <div>
+                    <p className="text-xs text-gray-500">Harga sewa</p>
+                    <p className="text-lg font-bold text-amber-600">{fleet.price}</p>
+                  </div>
+                  <a 
+                    href="https://wa.me/6281120508 00?text=Halo%2C%20saya%20tertarik%20dengan%20armada%20DRW%20TRANS"
+                    className="bg-gradient-to-r from-purple-600 to-purple-700 text-white px-6 py-2.5 rounded-xl font-semibold text-sm active:scale-95 transition-transform shadow-lg"
+                  >
+                    Pesan Sekarang
+                  </a>
+                </div>
               </div>
             </div>
-          </div>
+          ))}
         </div>
       </section>
 
       {/* Facility Gallery */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-royal-purple mb-4">Fasilitas Premium</h2>
-            <p className="text-gray-600 text-lg">Kenyamanan dan keamanan adalah prioritas kami</p>
-          </div>
+      <section className="container px-4 mt-12">
+        <div className="text-center mb-8">
+          <h2 className="text-2xl font-bold text-purple-900 mb-2">Fasilitas Premium</h2>
+          <p className="text-gray-600 text-sm">Kenyamanan dan keamanan prioritas kami</p>
+        </div>
 
-          {/* Safety */}
-          <div className="mb-12">
-            <h3 className="text-2xl font-bold text-royal-purple mb-6 flex items-center gap-2">
-              <Shield className="h-6 w-6 text-amber-gold" />
-              Keamanan
-            </h3>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {facilities.safety.map((item, index) => (
-                <div key={index} className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-                  <div className="aspect-square relative">
-                    <Image 
-                      src={item.image} 
-                      alt={item.name}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <div className="p-3 text-center">
-                    <p className="text-sm font-semibold text-gray-700">{item.name}</p>
-                  </div>
+        {/* Safety */}
+        <div className="mb-8">
+          <h3 className="text-lg font-bold text-purple-900 mb-4 flex items-center gap-2">
+            <Shield className="h-5 w-5 text-amber-500" />
+            Keamanan
+          </h3>
+          <div className="grid grid-cols-2 gap-3">
+            {facilities.safety.map((item, index) => (
+              <div key={index} className="bg-white rounded-xl overflow-hidden shadow-md">
+                <div className="aspect-square relative">
+                  <Image 
+                    src={item.image} 
+                    alt={item.name}
+                    fill
+                    className="object-cover"
+                  />
                 </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Comfort */}
-          <div className="mb-12">
-            <h3 className="text-2xl font-bold text-royal-purple mb-6 flex items-center gap-2">
-              <Users className="h-6 w-6 text-amber-gold" />
-              Kenyamanan
-            </h3>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {facilities.comfort.map((item, index) => (
-                <div key={index} className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-                  <div className="aspect-square relative">
-                    <Image 
-                      src={item.image} 
-                      alt={item.name}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <div className="p-3 text-center">
-                    <p className="text-sm font-semibold text-gray-700">{item.name}</p>
-                  </div>
+                <div className="p-2.5 text-center">
+                  <p className="text-xs font-semibold text-gray-700">{item.name}</p>
                 </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Technology */}
-          <div className="mb-12">
-            <h3 className="text-2xl font-bold text-royal-purple mb-6 flex items-center gap-2">
-              <Zap className="h-6 w-6 text-amber-gold" />
-              Teknologi
-            </h3>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {facilities.technology.map((item, index) => (
-                <div key={index} className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-                  <div className="aspect-square relative">
-                    <Image 
-                      src={item.image} 
-                      alt={item.name}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <div className="p-3 text-center">
-                    <p className="text-sm font-semibold text-gray-700">{item.name}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Storage */}
-          <div>
-            <h3 className="text-2xl font-bold text-royal-purple mb-6 flex items-center gap-2">
-              <Luggage className="h-6 w-6 text-amber-gold" />
-              Penyimpanan
-            </h3>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {facilities.storage.map((item, index) => (
-                <div key={index} className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-                  <div className="aspect-square relative">
-                    <Image 
-                      src={item.image} 
-                      alt={item.name}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <div className="p-3 text-center">
-                    <p className="text-sm font-semibold text-gray-700">{item.name}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Interior & Exterior Gallery */}
-          <div className="mt-16">
-            <h3 className="text-2xl font-bold text-royal-purple mb-6 text-center">Galeri Bus</h3>
-            <div className="grid md:grid-cols-3 gap-4">
-              <div className="relative aspect-video rounded-xl overflow-hidden shadow-lg">
-                <Image 
-                  src="/facilities/bus-interior-full.jpg" 
-                  alt="Interior Bus Lengkap"
-                  fill
-                  className="object-cover"
-                />
               </div>
-              <div className="relative aspect-video rounded-xl overflow-hidden shadow-lg">
-                <Image 
-                  src="/facilities/bus-exterior-side.jpg" 
-                  alt="Eksterior Bus"
-                  fill
-                  className="object-cover"
-                />
+            ))}
+          </div>
+        </div>
+
+        {/* Comfort */}
+        <div className="mb-8">
+          <h3 className="text-lg font-bold text-purple-900 mb-4 flex items-center gap-2">
+            <Users className="h-5 w-5 text-amber-500" />
+            Kenyamanan
+          </h3>
+          <div className="grid grid-cols-2 gap-3">
+            {facilities.comfort.map((item, index) => (
+              <div key={index} className="bg-white rounded-xl overflow-hidden shadow-md">
+                <div className="aspect-square relative">
+                  <Image 
+                    src={item.image} 
+                    alt={item.name}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div className="p-2.5 text-center">
+                  <p className="text-xs font-semibold text-gray-700">{item.name}</p>
+                </div>
               </div>
-              <div className="relative aspect-video rounded-xl overflow-hidden shadow-lg">
-                <Image 
-                  src="/facilities/luggage-storage-empty.jpg" 
-                  alt="Bagasi Bus"
-                  fill
-                  className="object-cover"
-                />
+            ))}
+          </div>
+        </div>
+
+        {/* Technology */}
+        <div className="mb-8">
+          <h3 className="text-lg font-bold text-purple-900 mb-4 flex items-center gap-2">
+            <Zap className="h-5 w-5 text-amber-500" />
+            Teknologi
+          </h3>
+          <div className="grid grid-cols-2 gap-3">
+            {facilities.technology.map((item, index) => (
+              <div key={index} className="bg-white rounded-xl overflow-hidden shadow-md">
+                <div className="aspect-square relative">
+                  <Image 
+                    src={item.image} 
+                    alt={item.name}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div className="p-2.5 text-center">
+                  <p className="text-xs font-semibold text-gray-700">{item.name}</p>
+                </div>
               </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Storage */}
+        <div className="mb-8">
+          <h3 className="text-lg font-bold text-purple-900 mb-4 flex items-center gap-2">
+            <Luggage className="h-5 w-5 text-amber-500" />
+            Penyimpanan
+          </h3>
+          <div className="grid grid-cols-2 gap-3">
+            {facilities.storage.map((item, index) => (
+              <div key={index} className="bg-white rounded-xl overflow-hidden shadow-md">
+                <div className="aspect-square relative">
+                  <Image 
+                    src={item.image} 
+                    alt={item.name}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div className="p-2.5 text-center">
+                  <p className="text-xs font-semibold text-gray-700">{item.name}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Interior & Exterior Gallery */}
+        <div className="mt-12">
+          <h3 className="text-lg font-bold text-purple-900 mb-4 text-center">Galeri Bus</h3>
+          <div className="grid grid-cols-1 gap-3">
+            <div className="relative aspect-video rounded-xl overflow-hidden shadow-lg">
+              <Image 
+                src="/facilities/bus-interior-full.jpg" 
+                alt="Interior Bus Lengkap"
+                fill
+                className="object-cover"
+              />
+            </div>
+            <div className="relative aspect-video rounded-xl overflow-hidden shadow-lg">
+              <Image 
+                src="/facilities/bus-exterior-side.jpg" 
+                alt="Eksterior Bus"
+                fill
+                className="object-cover"
+              />
+            </div>
+            <div className="relative aspect-video rounded-xl overflow-hidden shadow-lg">
+              <Image 
+                src="/facilities/luggage-storage-empty.jpg" 
+                alt="Bagasi Bus"
+                fill
+                className="object-cover"
+              />
             </div>
           </div>
         </div>

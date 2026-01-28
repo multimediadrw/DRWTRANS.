@@ -55,4 +55,21 @@
 - [x] Diagnose white screen and hero image display bug (node_modules missing)
 - [x] Fix the issue (reinstalled node_modules)
 - [x] Verify app works correctly (local dev server running fine)
+- [x] Push fix to GitHub (triggered fresh Vercel deployment)
+
+## PWA Caching Issue Fix
+- [ ] Check for service worker files
+- [ ] Check manifest.json version
+- [ ] Implement cache busting strategy
+- [ ] Add service worker update mechanism
 - [ ] Push fix to GitHub
+
+## Armada Photos Update
+- [x] Copy and rename Big Bus 50 seats photo
+- [x] Copy and rename Big Bus 47 seats + toilet photo
+- [x] Copy and rename Medium Bus 35 seats photo
+- [x] Copy and rename HiAce 12/14 seats photo
+- [x] Copy and rename Big Bus 59 seats photo
+- [x] Update Armada page with correct fleet data
+- [ ] Test all images display correctly
+- [ ] Push to GitHub
