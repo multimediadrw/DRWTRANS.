@@ -1,6 +1,6 @@
 'use client'
 
-import { Home, Calendar, Bus, HelpCircle } from 'lucide-react'
+import { Home, DollarSign, Bus, Calendar, HelpCircle } from 'lucide-react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
@@ -9,8 +9,9 @@ export default function BottomNav() {
   
   const navItems = [
     { href: '/', icon: Home, label: 'Beranda' },
-    { href: '/pemesanan', icon: Calendar, label: 'Pesan' },
+    { href: '/harga', icon: DollarSign, label: 'Harga' },
     { href: '/armada', icon: Bus, label: 'Armada' },
+    { href: '/pemesanan', icon: Calendar, label: 'Pesan' },
     { href: '/faq', icon: HelpCircle, label: 'Bantuan' },
   ]
 

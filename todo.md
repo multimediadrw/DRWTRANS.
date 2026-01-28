@@ -43,4 +43,10 @@
 - [x] Add route information and minimum rental requirements
 - [x] Add important notes and terms
 - [x] Add bank account details
+- [x] Push changes to GitHub
+
+## Mobile PWA Pricing Page Fix
+- [x] Update BottomNav to add Harga menu (5 items total)
+- [x] Redesign Harga page for mobile-first (cards instead of table)
+- [x] Ensure all pricing data is complete and accurate
 - [ ] Push changes to GitHub
