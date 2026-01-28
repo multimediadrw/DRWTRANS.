@@ -6,16 +6,26 @@ import Link from 'next/link'
 import BottomNav from './components/BottomNav'
 import BookingModal from './components/BookingModal'
 import PWAInstall from './components/PWAInstall'
-import { Bell, User, Bus, Car, MapPin, Briefcase, Star, ChevronRight } from 'lucide-react'
+import { Bell, User, Bus, Car, Star, ChevronRight } from 'lucide-react'
 
 export default function HomePage() {
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false)
 
   const services = [
-    { icon: Bus, label: 'Sewa Bus', color: 'bg-purple-100', iconColor: 'text-royal-purple', href: '/bisnis' },
-    { icon: Car, label: 'HiAce', color: 'bg-purple-100', iconColor: 'text-royal-purple', href: '/pribadi' },
-    { icon: MapPin, label: 'Paket Wisata', color: 'bg-purple-100', iconColor: 'text-royal-purple', href: '/promo' },
-    { icon: Briefcase, label: 'Antar Jemput', color: 'bg-purple-100', iconColor: 'text-royal-purple', href: '/pemesanan' },
+    { 
+      icon: Bus, 
+      label: 'Sewa Bus', 
+      bgColor: 'bg-purple-100', 
+      iconColor: 'text-purple-700', 
+      href: '/bisnis' 
+    },
+    { 
+      icon: Car, 
+      label: 'Sewa HiAce', 
+      bgColor: 'bg-orange-100', 
+      iconColor: 'text-orange-700', 
+      href: '/pribadi' 
+    },
   ]
 
   const promos = [
@@ -82,27 +92,29 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* Greeting - Smaller */}
+        {/* Greeting */}
         <div className="text-white">
           <h1 className="text-xl font-bold mb-1">Hai, Sahabat DRW 👋</h1>
           <p className="text-sm text-white/80">Mau pergi ke mana hari ini?</p>
         </div>
       </header>
 
-      {/* Overlapping Service Grid Card */}
-      <div className="px-4 -mt-10 mb-6">
-        <div className="bg-white rounded-3xl shadow-xl p-5">
-          <div className="grid grid-cols-4 gap-3">
+      {/* Overlapping Icon-Based Service Grid */}
+      <div className="px-4 -mt-8 mb-6 relative z-10">
+        <div className="bg-white rounded-2xl shadow-lg p-6">
+          <div className="grid grid-cols-2 gap-6">
             {services.map((service, index) => (
               <Link
                 key={index}
                 href={service.href}
-                className="flex flex-col items-center gap-1.5 group"
+                className="flex flex-col items-center gap-2 group"
               >
-                <div className={`w-12 h-12 ${service.color} rounded-full flex items-center justify-center group-hover:scale-110 transition-transform`}>
-                  <service.icon className={`w-6 h-6 ${service.iconColor}`} />
+                {/* Colorful Circle Background */}
+                <div className={`w-16 h-16 ${service.bgColor} rounded-full flex items-center justify-center group-hover:scale-110 transition-transform`}>
+                  <service.icon className={`w-8 h-8 ${service.iconColor}`} strokeWidth={2} />
                 </div>
-                <span className="text-[10px] font-semibold text-gray-700 text-center leading-tight">
+                {/* Label */}
+                <span className="text-[10px] font-medium text-gray-600 text-center leading-tight">
                   {service.label}
                 </span>
               </Link>
@@ -111,7 +123,7 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* Promo Banner - Full Image with Snap */}
+      {/* Promo Banner - Immersive (Edge to Edge) */}
       <section className="mb-6">
         <div className="px-4 mb-3 flex items-center justify-between">
           <h2 className="text-lg font-bold text-gray-900">Promo Spesial</h2>
@@ -121,11 +133,12 @@ export default function HomePage() {
           </Link>
         </div>
         
-        <div className="flex gap-3 overflow-x-auto px-4 pb-2 snap-x snap-center scrollbar-hide">
-          {promos.map((promo) => (
+        {/* No horizontal padding - banners touch edges */}
+        <div className="flex gap-3 overflow-x-auto pb-2 snap-x snap-mandatory scrollbar-hide">
+          {promos.map((promo, index) => (
             <div
               key={promo.id}
-              className="flex-shrink-0 w-[85%] snap-center"
+              className={`flex-shrink-0 w-[85%] snap-center ${index === 0 ? 'pl-4' : ''} ${index === promos.length - 1 ? 'pr-4' : ''}`}
             >
               <div className={`aspect-[16/9] rounded-2xl bg-gradient-to-r ${promo.color} p-5 flex flex-col justify-center shadow-lg`}>
                 <h3 className="text-white font-bold text-base mb-1">
@@ -140,7 +153,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Armada Favorit - Compact Cards */}
+      {/* Armada Favorit - White Cards on Gray Background */}
       <section className="px-4 mb-6">
         <div className="mb-3 flex items-center justify-between">
           <h2 className="text-lg font-bold text-gray-900">Armada Favorit</h2>
@@ -167,7 +180,7 @@ export default function HomePage() {
                 />
               </div>
 
-              {/* Content with Compact Spacing */}
+              {/* Content */}
               <div className="p-4">
                 <div className="flex items-start justify-between gap-2 mb-2">
                   <div className="flex-1 min-w-0">
@@ -175,7 +188,7 @@ export default function HomePage() {
                     <p className="text-xs text-gray-600">{item.seats} • AC • Audio</p>
                   </div>
                   
-                  {/* Rating - Compact */}
+                  {/* Rating */}
                   <div className="flex items-center gap-1 flex-shrink-0">
                     <Star className="w-3 h-3 fill-amber-gold text-amber-gold" />
                     <span className="text-xs font-semibold text-gray-900">{item.rating}</span>
@@ -198,7 +211,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Destinasi Populer - Compact */}
+      {/* Destinasi Populer */}
       <section className="px-4 mb-6">
         <div className="mb-3">
           <h2 className="text-lg font-bold text-gray-900">Destinasi Populer</h2>
