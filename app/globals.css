@@ -11,8 +11,31 @@
     --amber-gold-dark: #D97706;
   }
 
+  /* Native PWA Feel */
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html,
   body {
+    overscroll-behavior-y: none;
     @apply text-gray-900;
+  }
+
+  /* Prevent text selection on UI elements */
+  button,
+  a,
+  [role="button"],
+  .no-select {
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  /* Allow text selection in inputs */
+  input,
+  textarea {
+    user-select: text;
+    -webkit-user-select: text;
   }
 }
 

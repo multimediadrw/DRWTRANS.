@@ -15,6 +15,7 @@ export default function HomePage() {
     { 
       icon: Bus, 
       label: 'Sewa Bus', 
+      subtitle: 'Kapasitas 30-50 Seat',
       bgColor: 'bg-purple-100', 
       iconColor: 'text-purple-700', 
       href: '/bisnis' 
@@ -22,6 +23,7 @@ export default function HomePage() {
     { 
       icon: Car, 
       label: 'Sewa HiAce', 
+      subtitle: 'Kapasitas 14 Seat',
       bgColor: 'bg-orange-100', 
       iconColor: 'text-orange-700', 
       href: '/pribadi' 
@@ -99,24 +101,33 @@ export default function HomePage() {
         </div>
       </header>
 
-      {/* Overlapping Icon-Based Service Grid */}
+      {/* Overlapping Landscape Service Buttons */}
       <div className="px-4 -mt-8 mb-6 relative z-10">
-        <div className="bg-white rounded-2xl shadow-lg p-6">
-          <div className="grid grid-cols-2 gap-6">
+        <div className="bg-white rounded-2xl shadow-lg p-5">
+          <div className="space-y-3">
             {services.map((service, index) => (
               <Link
                 key={index}
                 href={service.href}
-                className="flex flex-col items-center gap-2 group"
+                className="flex items-center gap-4 p-4 rounded-xl bg-gray-50 hover:bg-gray-100 active:scale-95 transition-all no-select"
               >
-                {/* Colorful Circle Background */}
-                <div className={`w-16 h-16 ${service.bgColor} rounded-full flex items-center justify-center group-hover:scale-110 transition-transform`}>
-                  <service.icon className={`w-8 h-8 ${service.iconColor}`} strokeWidth={2} />
+                {/* Left: Icon Circle */}
+                <div className={`w-14 h-14 ${service.bgColor} rounded-full flex items-center justify-center flex-shrink-0`}>
+                  <service.icon className={`w-7 h-7 ${service.iconColor}`} strokeWidth={2} />
                 </div>
-                {/* Label */}
-                <span className="text-[10px] font-medium text-gray-600 text-center leading-tight">
-                  {service.label}
-                </span>
+
+                {/* Center: Title & Subtitle */}
+                <div className="flex-1 min-w-0">
+                  <h3 className="font-bold text-base text-gray-900 mb-0.5">
+                    {service.label}
+                  </h3>
+                  <p className="text-xs text-gray-600">
+                    {service.subtitle}
+                  </p>
+                </div>
+
+                {/* Right: Arrow */}
+                <ChevronRight className="w-5 h-5 text-gray-400 flex-shrink-0" />
               </Link>
             ))}
           </div>
@@ -140,7 +151,7 @@ export default function HomePage() {
               key={promo.id}
               className={`flex-shrink-0 w-[85%] snap-center ${index === 0 ? 'pl-4' : ''} ${index === promos.length - 1 ? 'pr-4' : ''}`}
             >
-              <div className={`aspect-[16/9] rounded-2xl bg-gradient-to-r ${promo.color} p-5 flex flex-col justify-center shadow-lg`}>
+              <div className={`aspect-[16/9] rounded-2xl bg-gradient-to-r ${promo.color} p-5 flex flex-col justify-center shadow-lg no-select`}>
                 <h3 className="text-white font-bold text-base mb-1">
                   {promo.title}
                 </h3>
@@ -168,7 +179,7 @@ export default function HomePage() {
             <Link
               key={item.id}
               href="/pemesanan"
-              className="block bg-white rounded-2xl shadow-sm hover:shadow-md transition-shadow overflow-hidden"
+              className="block bg-white rounded-2xl shadow-sm hover:shadow-md active:scale-[0.98] transition-all overflow-hidden no-select"
             >
               {/* Full Width Image */}
               <div className="relative w-full h-32 bg-gray-200">
@@ -227,9 +238,9 @@ export default function HomePage() {
             <Link
               key={index}
               href="/promo"
-              className="block"
+              className="block active:scale-95 transition-transform"
             >
-              <div className={`h-28 rounded-2xl bg-gradient-to-br ${dest.color} p-4 flex flex-col justify-end shadow-sm`}>
+              <div className={`h-28 rounded-2xl bg-gradient-to-br ${dest.color} p-4 flex flex-col justify-end shadow-sm no-select`}>
                 <h3 className="text-white font-bold text-base">{dest.name}</h3>
                 <p className="text-white/90 text-xs">{dest.trips}</p>
               </div>
