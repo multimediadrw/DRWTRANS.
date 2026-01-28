@@ -1,29 +1,12 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { Phone, MapPin, Clock, Shield, Award, Users } from 'lucide-react'
+import Navigation from './components/Navigation'
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Navigation */}
-      <nav className="bg-white shadow-sm sticky top-0 z-50">
-        <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between h-20">
-            <Link href="/" className="flex items-center gap-3">
-              <Image src="/logo.png" alt="DRWTRANS" width={60} height={60} className="object-contain" />
-            </Link>
-            <div className="hidden md:flex items-center gap-8">
-              <Link href="/fleet" className="text-gray-700 hover:text-purple-600 font-medium transition-colors">Armada</Link>
-              <Link href="/pricing" className="text-gray-700 hover:text-purple-600 font-medium transition-colors">Harga</Link>
-              <Link href="/about" className="text-gray-700 hover:text-purple-600 font-medium transition-colors">Tentang</Link>
-              <Link href="/contact" className="text-gray-700 hover:text-purple-600 font-medium transition-colors">Kontak</Link>
-              <Link href="/booking" className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transition-all">
-                Pesan Sekarang
-              </Link>
-            </div>
-          </div>
-        </div>
-      </nav>
+      <Navigation />
 
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-purple-600 via-purple-700 to-pink-600 text-white py-24">
@@ -37,7 +20,7 @@ export default function Home() {
               Kemanapun tujuannya, berpergian aman bersama DRWTRANS
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/booking" className="bg-white text-purple-600 px-10 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-all shadow-xl">
+              <Link href="/pemesanan" className="bg-white text-purple-600 px-10 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-all shadow-xl">
                 Pesan Sekarang
               </Link>
               <a href="tel:08112050800" className="bg-orange-500 text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-orange-600 transition-all shadow-xl flex items-center justify-center gap-2">
@@ -121,7 +104,7 @@ export default function Home() {
             Hubungi kami sekarang untuk konsultasi gratis dan dapatkan penawaran terbaik
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/booking" className="bg-white text-purple-600 px-10 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-all">
+            <Link href="/pemesanan" className="bg-white text-purple-600 px-10 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-all">
               Pesan Online
             </Link>
             <a href="tel:08112050800" className="bg-orange-500 text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-orange-600 transition-all flex items-center justify-center gap-2">
@@ -141,34 +124,27 @@ export default function Home() {
               <p className="text-gray-400">Layanan transportasi bus terpercaya untuk perjalanan Anda</p>
             </div>
             <div>
-              <h4 className="font-bold text-lg mb-4">Menu</h4>
+              <h4 className="font-bold text-lg mb-4">Produk & Layanan</h4>
               <ul className="space-y-2">
-                <li><Link href="/fleet" className="text-gray-400 hover:text-white">Armada</Link></li>
-                <li><Link href="/pricing" className="text-gray-400 hover:text-white">Harga</Link></li>
-                <li><Link href="/about" className="text-gray-400 hover:text-white">Tentang Kami</Link></li>
-                <li><Link href="/contact" className="text-gray-400 hover:text-white">Kontak</Link></li>
+                <li><Link href="/bisnis" className="text-gray-400 hover:text-white">Bisnis</Link></li>
+                <li><Link href="/pribadi" className="text-gray-400 hover:text-white">Pribadi</Link></li>
+                <li><Link href="/armada" className="text-gray-400 hover:text-white">Armada</Link></li>
               </ul>
             </div>
             <div>
-              <h4 className="font-bold text-lg mb-4">Layanan</h4>
+              <h4 className="font-bold text-lg mb-4">Tentang</h4>
               <ul className="space-y-2">
-                <li><Link href="/booking" className="text-gray-400 hover:text-white">Pemesanan</Link></li>
-                <li><Link href="/safety" className="text-gray-400 hover:text-white">Keamanan</Link></li>
-                <li><Link href="/facilities" className="text-gray-400 hover:text-white">Fasilitas</Link></li>
-                <li><Link href="/terms" className="text-gray-400 hover:text-white">Syarat & Ketentuan</Link></li>
+                <li><Link href="/profil" className="text-gray-400 hover:text-white">Profil</Link></li>
+                <li><Link href="/blog" className="text-gray-400 hover:text-white">Blog</Link></li>
+                <li><Link href="/karir" className="text-gray-400 hover:text-white">Karir</Link></li>
               </ul>
             </div>
             <div>
-              <h4 className="font-bold text-lg mb-4">Kontak</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li className="flex items-center gap-2">
-                  <Phone className="h-5 w-5" />
-                  <a href="tel:08112050800" className="hover:text-white">0811-2050-800</a>
-                </li>
-                <li className="flex items-center gap-2">
-                  <MapPin className="h-5 w-5" />
-                  <span>Indonesia</span>
-                </li>
+              <h4 className="font-bold text-lg mb-4">Bantuan</h4>
+              <ul className="space-y-2">
+                <li><Link href="/faq" className="text-gray-400 hover:text-white">FAQ</Link></li>
+                <li><Link href="/lokasi-cabang" className="text-gray-400 hover:text-white">Lokasi Cabang</Link></li>
+                <li><Link href="/hubungi-kami" className="text-gray-400 hover:text-white">Hubungi Kami</Link></li>
               </ul>
             </div>
           </div>
