@@ -10,4 +10,47 @@
     --amber-gold: #F59E0B;
     --amber-gold-dark: #D97706;
   }
+
+  body {
+    @apply text-gray-900;
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .text-royal-purple {
+    color: var(--royal-purple);
+  }
+
+  .bg-royal-purple {
+    background-color: var(--royal-purple);
+  }
+
+  .bg-royal-purple-dark {
+    background-color: var(--royal-purple-dark);
+  }
+
+  .text-amber-gold {
+    color: var(--amber-gold);
+  }
+
+  .bg-amber-gold {
+    background-color: var(--amber-gold);
+  }
+
+  .bg-amber-gold-dark {
+    background-color: var(--amber-gold-dark);
+  }
+
+  .fill-amber-gold {
+    fill: var(--amber-gold);
+  }
 }
