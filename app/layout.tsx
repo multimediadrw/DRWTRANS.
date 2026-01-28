@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description: "Layanan sewa bus dan transportasi korporat terpercaya",
   manifest: "/manifest.json",
   themeColor: "#2E1065",
-  viewport: "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no",
+  viewport: "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0, viewport-fit=cover",
   appleWebApp: {
     capable: true,
     statusBarStyle: "black-translucent",

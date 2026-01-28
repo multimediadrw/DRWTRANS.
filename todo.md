@@ -1,0 +1,39 @@
+# DRWTRANS Complete Refactor TODO
+
+## Phase 1: Global Architecture & PWA Config
+- [x] Update layout.tsx with viewport-fit=cover and safe-area support
+- [x] Update globals.css with native CSS overrides
+- [x] Fix logo aspect ratio (h-8 w-auto object-contain)
+- [x] Add safe-area-inset-top to header
+- [x] Add safe-area-inset-bottom to bottom nav
+
+## Phase 2: Homepage Refactor
+- [x] Refactor menu grid to 2-column landscape buttons with subtitle
+- [x] Add gradient overlay to promo banners
+- [x] Update armada cards with orange pricing and WhatsApp links
+- [x] Add FAQ accordion section with 3 questions
+- [x] Add skeleton loading states (pulse animation)
+- [x] Add fade-in page transitions
+- [x] Add pb-32 to main content for bottom nav clearance
+
+## Phase 3: Testing
+- [ ] Test locally on dev server
+- [ ] Verify all interactions work
+- [ ] Check responsive behavior
+
+## Phase 4: Deployment
+- [ ] Push to GitHub
+- [ ] Verify Vercel auto-deploy
+- [ ] Create checkpoint
+
+## UI Improvements (Current Task)
+- [ ] Change menu grid from 4 columns to 2 columns landscape layout
+- [ ] Fix logo aspect ratio (h-8 w-auto object-contain)
+- [ ] Add FAQ accordion section with 3 questions
+- [ ] Add PWA CSS tweaks (-webkit-tap-highlight-color: transparent)
+
+## Facility Photos Upload
+- [x] Create /public/facilities/ directory
+- [x] Copy and rename all facility photos with descriptive names
+- [x] Update Armada page to display facility gallery
+- [ ] Push changes to GitHub

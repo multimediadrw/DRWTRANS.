@@ -6,16 +6,17 @@ import Link from 'next/link'
 import BottomNav from './components/BottomNav'
 import BookingModal from './components/BookingModal'
 import PWAInstall from './components/PWAInstall'
-import { Bell, User, Bus, Car, Star, ChevronRight } from 'lucide-react'
+import { Bell, User, Bus, Car, Star, ChevronRight, ChevronDown } from 'lucide-react'
 
 export default function HomePage() {
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false)
+  const [expandedFaq, setExpandedFaq] = useState<number | null>(null)
 
   const services = [
     { 
       icon: Bus, 
       label: 'Sewa Bus', 
-      subtitle: 'Kapasitas 30-50 Seat',
+      subtitle: 'Kapasitas 45-50 Seat',
       bgColor: 'bg-purple-100', 
       iconColor: 'text-purple-700', 
       href: '/bisnis' 
@@ -31,9 +32,27 @@ export default function HomePage() {
   ]
 
   const promos = [
-    { id: 1, title: 'Diskon 20% Sewa Bus', subtitle: 'Hemat hingga Rp 500.000', color: 'from-blue-500 to-purple-600' },
-    { id: 2, title: 'Paket Wisata Hemat', subtitle: 'Mulai Rp 2 Juta All-In', color: 'from-green-500 to-teal-600' },
-    { id: 3, title: 'Promo HiAce Spesial', subtitle: 'Gratis Driver & BBM', color: 'from-orange-500 to-red-600' },
+    { 
+      id: 1, 
+      title: 'Diskon 20% Sewa Bus', 
+      subtitle: 'Hemat hingga Rp 500.000', 
+      color: 'from-blue-500 to-purple-600',
+      image: '/hero-bus.jpg'
+    },
+    { 
+      id: 2, 
+      title: 'Paket Wisata Hemat', 
+      subtitle: 'Mulai Rp 2 Juta All-In', 
+      color: 'from-green-500 to-teal-600',
+      image: '/hero-bus.jpg'
+    },
+    { 
+      id: 3, 
+      title: 'Promo HiAce Spesial', 
+      subtitle: 'Gratis Driver & BBM', 
+      color: 'from-orange-500 to-red-600',
+      image: '/hero-bus.jpg'
+    },
   ]
 
   const armada = [
@@ -66,19 +85,42 @@ export default function HomePage() {
     },
   ]
 
+  const faqs = [
+    {
+      id: 1,
+      question: 'Apakah harga sudah termasuk BBM?',
+      answer: 'Ya, harga sewa sudah termasuk BBM, driver, dan tol dalam kota. Untuk perjalanan luar kota, BBM dan tol ditanggung penyewa.'
+    },
+    {
+      id: 2,
+      question: 'Bagaimana cara pembayaran?',
+      answer: 'Pembayaran dapat dilakukan via transfer bank (BCA, Mandiri, BRI) atau tunai. DP 30% saat booking, pelunasan H-1 sebelum keberangkatan.'
+    },
+    {
+      id: 3,
+      question: 'Apakah bisa lepas kunci (tanpa driver)?',
+      answer: 'Maaf, untuk keamanan dan kenyamanan, semua armada kami disewakan dengan driver profesional yang berpengalaman.'
+    },
+  ]
+
+  const getWhatsAppLink = (vehicleName: string) => {
+    const message = `Halo DRW TRANS, saya tertarik menyewa ${vehicleName}. Mohon info lebih lanjut.`
+    return `https://wa.me/6281120508000?text=${encodeURIComponent(message)}`
+  }
+
   return (
-    <div className="min-h-screen bg-gray-50 pb-20">
-      {/* App Header with Extreme Rounded Bottom */}
-      <header className="bg-gradient-to-b from-royal-purple to-royal-purple-dark h-48 rounded-b-[2.5rem] px-4 pt-6 pb-16">
-        <div className="flex items-center justify-between mb-6">
-          {/* Logo Horizontal */}
+    <div className="min-h-screen bg-gray-50 pb-32 animate-fadeIn">
+      {/* App Header with Safe Area Top */}
+      <header className="bg-gradient-to-b from-royal-purple to-royal-purple-dark h-48 rounded-b-[2.5rem] px-4 pt-[env(safe-area-inset-top,1.5rem)] pb-16">
+        <div className="flex items-center justify-between mb-6 pt-6">
+          {/* Logo Horizontal - Fixed Aspect Ratio */}
           <div className="flex items-center gap-2">
             <Image 
               src="/logo.png" 
               alt="DRW TRANS" 
               width={32}
               height={32}
-              className="w-8 h-8"
+              className="h-8 w-auto object-contain"
             />
             <span className="text-white font-bold text-lg">DRW TRANS</span>
           </div>
@@ -101,9 +143,9 @@ export default function HomePage() {
         </div>
       </header>
 
-      {/* Overlapping Landscape Service Buttons */}
-      <div className="px-4 -mt-8 mb-6 relative z-10">
-        <div className="bg-white rounded-2xl shadow-lg p-5">
+      {/* Overlapping Service Menu Card */}
+      <div className="px-4 -mt-12 mb-6 relative z-10">
+        <div className="bg-white rounded-2xl shadow-xl p-4">
           <div className="space-y-3">
             {services.map((service, index) => (
               <Link
@@ -134,7 +176,7 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* Promo Banner - Immersive (Edge to Edge) */}
+      {/* Promo Banner with Gradient Overlay */}
       <section className="mb-6">
         <div className="px-4 mb-3 flex items-center justify-between">
           <h2 className="text-lg font-bold text-gray-900">Promo Spesial</h2>
@@ -144,27 +186,35 @@ export default function HomePage() {
           </Link>
         </div>
         
-        {/* No horizontal padding - banners touch edges */}
         <div className="flex gap-3 overflow-x-auto pb-2 snap-x snap-mandatory scrollbar-hide">
           {promos.map((promo, index) => (
             <div
               key={promo.id}
               className={`flex-shrink-0 w-[85%] snap-center ${index === 0 ? 'pl-4' : ''} ${index === promos.length - 1 ? 'pr-4' : ''}`}
             >
-              <div className={`aspect-[16/9] rounded-2xl bg-gradient-to-r ${promo.color} p-5 flex flex-col justify-center shadow-lg no-select`}>
-                <h3 className="text-white font-bold text-base mb-1">
-                  {promo.title}
-                </h3>
-                <p className="text-white/90 text-xs">
-                  {promo.subtitle}
-                </p>
+              <div className="relative aspect-[16/9] rounded-2xl overflow-hidden shadow-lg">
+                {/* Background Image */}
+                <div className={`absolute inset-0 bg-gradient-to-r ${promo.color}`} />
+                
+                {/* Gradient Overlay for Text Readability */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+                
+                {/* Content */}
+                <div className="relative h-full p-5 flex flex-col justify-end no-select">
+                  <h3 className="text-white font-bold text-base mb-1 drop-shadow-lg">
+                    {promo.title}
+                  </h3>
+                  <p className="text-white/95 text-xs drop-shadow-md">
+                    {promo.subtitle}
+                  </p>
+                </div>
               </div>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Armada Favorit - White Cards on Gray Background */}
+      {/* Armada Favorit with WhatsApp Links */}
       <section className="px-4 mb-6">
         <div className="mb-3 flex items-center justify-between">
           <h2 className="text-lg font-bold text-gray-900">Armada Favorit</h2>
@@ -176,10 +226,9 @@ export default function HomePage() {
 
         <div className="space-y-3">
           {armada.map((item) => (
-            <Link
+            <div
               key={item.id}
-              href="/pemesanan"
-              className="block bg-white rounded-2xl shadow-sm hover:shadow-md active:scale-[0.98] transition-all overflow-hidden no-select"
+              className="bg-white rounded-2xl shadow-sm overflow-hidden no-select"
             >
               {/* Full Width Image */}
               <div className="relative w-full h-32 bg-gray-200">
@@ -193,7 +242,7 @@ export default function HomePage() {
 
               {/* Content */}
               <div className="p-4">
-                <div className="flex items-start justify-between gap-2 mb-2">
+                <div className="flex items-start justify-between gap-2 mb-3">
                   <div className="flex-1 min-w-0">
                     <h3 className="font-bold text-base text-gray-900 mb-1 truncate">{item.name}</h3>
                     <p className="text-xs text-gray-600">{item.seats} • AC • Audio</p>
@@ -203,21 +252,74 @@ export default function HomePage() {
                   <div className="flex items-center gap-1 flex-shrink-0">
                     <Star className="w-3 h-3 fill-amber-gold text-amber-gold" />
                     <span className="text-xs font-semibold text-gray-900">{item.rating}</span>
+                    <span className="text-xs text-gray-400">({item.reviews})</span>
                   </div>
                 </div>
 
-                {/* Price - Bold Orange */}
-                <div className="flex items-center justify-between mt-2">
+                {/* Price & WhatsApp Button */}
+                <div className="flex items-center justify-between">
                   <div>
                     <p className="text-[10px] text-gray-500 mb-0.5">Mulai dari</p>
-                    <p className="text-base font-bold text-orange-500">{item.price}</p>
+                    <p className="text-lg font-bold text-orange-600">{item.price}</p>
                   </div>
-                  <div className="text-xs text-gray-400">
-                    ({item.reviews} ulasan)
-                  </div>
+                  
+                  {/* WhatsApp Button */}
+                  <a
+                    href={getWhatsAppLink(item.name)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-4 py-2 bg-green-500 hover:bg-green-600 active:scale-95 text-white text-xs font-semibold rounded-lg transition-all flex items-center gap-1.5"
+                  >
+                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                    </svg>
+                    Pesan
+                  </a>
                 </div>
               </div>
-            </Link>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* FAQ Accordion */}
+      <section className="px-4 mb-6">
+        <div className="mb-3">
+          <h2 className="text-lg font-bold text-gray-900">Pertanyaan Umum</h2>
+        </div>
+
+        <div className="space-y-3">
+          {faqs.map((faq) => (
+            <div
+              key={faq.id}
+              className="bg-white rounded-xl shadow-sm overflow-hidden"
+            >
+              <button
+                onClick={() => setExpandedFaq(expandedFaq === faq.id ? null : faq.id)}
+                className="w-full px-4 py-4 flex items-center justify-between gap-3 text-left hover:bg-gray-50 active:bg-gray-100 transition-colors"
+              >
+                <span className="font-semibold text-sm text-gray-900 flex-1">
+                  {faq.question}
+                </span>
+                <ChevronDown 
+                  className={`w-5 h-5 text-gray-400 flex-shrink-0 transition-transform ${
+                    expandedFaq === faq.id ? 'rotate-180' : ''
+                  }`}
+                />
+              </button>
+              
+              <div
+                className={`transition-all duration-300 ease-in-out ${
+                  expandedFaq === faq.id 
+                    ? 'max-h-48 opacity-100' 
+                    : 'max-h-0 opacity-0'
+                }`}
+              >
+                <div className="px-4 pb-4 text-sm text-gray-600 leading-relaxed">
+                  {faq.answer}
+                </div>
+              </div>
+            </div>
           ))}
         </div>
       </section>
@@ -241,8 +343,8 @@ export default function HomePage() {
               className="block active:scale-95 transition-transform"
             >
               <div className={`h-28 rounded-2xl bg-gradient-to-br ${dest.color} p-4 flex flex-col justify-end shadow-sm no-select`}>
-                <h3 className="text-white font-bold text-base">{dest.name}</h3>
-                <p className="text-white/90 text-xs">{dest.trips}</p>
+                <h3 className="text-white font-bold text-base drop-shadow-lg">{dest.name}</h3>
+                <p className="text-white/95 text-xs drop-shadow-md">{dest.trips}</p>
               </div>
             </Link>
           ))}

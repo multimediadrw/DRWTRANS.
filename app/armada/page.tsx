@@ -1,7 +1,29 @@
+'use client'
+
 import Navigation from '../components/Navigation'
-import { Users, Wind, Tv, Wifi } from 'lucide-react'
+import Image from 'next/image'
+import { Users, Wind, Tv, Wifi, Shield, Zap, Coffee, Luggage } from 'lucide-react'
 
 export default function ArmadaPage() {
+  const facilities = {
+    safety: [
+      { name: 'Kotak P3K', image: '/facilities/first-aid-box.jpg', icon: Shield },
+    ],
+    comfort: [
+      { name: 'Kursi Kulit Premium', image: '/facilities/premium-leather-seats.jpg', icon: Users },
+      { name: 'AC & Ventilasi', image: '/facilities/ac-vent.jpg', icon: Wind },
+      { name: 'Panel Kontrol', image: '/facilities/ceiling-controls.jpg', icon: Tv },
+      { name: 'Meja Lipat', image: '/facilities/folding-table.jpg', icon: Coffee },
+    ],
+    technology: [
+      { name: 'WiFi Router', image: '/facilities/wifi-router.jpg', icon: Wifi },
+      { name: 'USB Charging Port', image: '/facilities/usb-charging-port.jpg', icon: Zap },
+    ],
+    storage: [
+      { name: 'Bagasi Luas', image: '/facilities/luggage-storage-view.jpg', icon: Luggage },
+    ],
+  }
+
   return (
     <div className="min-h-screen bg-white">
       <Navigation />
@@ -13,6 +35,7 @@ export default function ArmadaPage() {
         </div>
       </section>
 
+      {/* Fleet Cards */}
       <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
@@ -79,7 +102,7 @@ export default function ArmadaPage() {
             </div>
 
             {/* HiAce */}
-            <div className="bg-white rounded-2xl shadow-xl overflow-hidden border-2 border-amber-gold">
+            <div className="bg-white rounded-2xl shadow-xl overflow-hidden border-2 border-amber-gold relative">
               <div className="absolute top-4 right-4 bg-amber-gold text-white px-3 py-1 rounded-full text-xs font-bold z-10">
                 POPULER
               </div>
@@ -109,6 +132,147 @@ export default function ArmadaPage() {
                 <a href="tel:08112050800" className="block text-center bg-amber-gold hover:bg-amber-gold-dark text-white py-3 rounded-lg font-semibold transition-all">
                   Hubungi Kami
                 </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Facility Gallery */}
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-royal-purple mb-4">Fasilitas Premium</h2>
+            <p className="text-gray-600 text-lg">Kenyamanan dan keamanan adalah prioritas kami</p>
+          </div>
+
+          {/* Safety */}
+          <div className="mb-12">
+            <h3 className="text-2xl font-bold text-royal-purple mb-6 flex items-center gap-2">
+              <Shield className="h-6 w-6 text-amber-gold" />
+              Keamanan
+            </h3>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {facilities.safety.map((item, index) => (
+                <div key={index} className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+                  <div className="aspect-square relative">
+                    <Image 
+                      src={item.image} 
+                      alt={item.name}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="p-3 text-center">
+                    <p className="text-sm font-semibold text-gray-700">{item.name}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Comfort */}
+          <div className="mb-12">
+            <h3 className="text-2xl font-bold text-royal-purple mb-6 flex items-center gap-2">
+              <Users className="h-6 w-6 text-amber-gold" />
+              Kenyamanan
+            </h3>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {facilities.comfort.map((item, index) => (
+                <div key={index} className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+                  <div className="aspect-square relative">
+                    <Image 
+                      src={item.image} 
+                      alt={item.name}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="p-3 text-center">
+                    <p className="text-sm font-semibold text-gray-700">{item.name}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Technology */}
+          <div className="mb-12">
+            <h3 className="text-2xl font-bold text-royal-purple mb-6 flex items-center gap-2">
+              <Zap className="h-6 w-6 text-amber-gold" />
+              Teknologi
+            </h3>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {facilities.technology.map((item, index) => (
+                <div key={index} className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+                  <div className="aspect-square relative">
+                    <Image 
+                      src={item.image} 
+                      alt={item.name}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="p-3 text-center">
+                    <p className="text-sm font-semibold text-gray-700">{item.name}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Storage */}
+          <div>
+            <h3 className="text-2xl font-bold text-royal-purple mb-6 flex items-center gap-2">
+              <Luggage className="h-6 w-6 text-amber-gold" />
+              Penyimpanan
+            </h3>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {facilities.storage.map((item, index) => (
+                <div key={index} className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+                  <div className="aspect-square relative">
+                    <Image 
+                      src={item.image} 
+                      alt={item.name}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="p-3 text-center">
+                    <p className="text-sm font-semibold text-gray-700">{item.name}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Interior & Exterior Gallery */}
+          <div className="mt-16">
+            <h3 className="text-2xl font-bold text-royal-purple mb-6 text-center">Galeri Bus</h3>
+            <div className="grid md:grid-cols-3 gap-4">
+              <div className="relative aspect-video rounded-xl overflow-hidden shadow-lg">
+                <Image 
+                  src="/facilities/bus-interior-full.jpg" 
+                  alt="Interior Bus Lengkap"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="relative aspect-video rounded-xl overflow-hidden shadow-lg">
+                <Image 
+                  src="/facilities/bus-exterior-side.jpg" 
+                  alt="Eksterior Bus"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="relative aspect-video rounded-xl overflow-hidden shadow-lg">
+                <Image 
+                  src="/facilities/luggage-storage-empty.jpg" 
+                  alt="Bagasi Bus"
+                  fill
+                  className="object-cover"
+                />
               </div>
             </div>
           </div>
