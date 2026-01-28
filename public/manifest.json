@@ -1,0 +1,18 @@
+{
+  "name": "DRW TRANS - Layanan Transportasi Premium",
+  "short_name": "DRW TRANS",
+  "description": "Layanan sewa bus dan transportasi korporat terpercaya",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#2E1065",
+  "theme_color": "#2E1065",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

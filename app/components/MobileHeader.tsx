@@ -6,7 +6,7 @@ import { MessageCircle } from 'lucide-react'
 
 export default function MobileHeader() {
   return (
-    <header className="fixed top-0 left-0 right-0 bg-white border-b border-gray-200 z-40 md:hidden">
+    <header className="sticky top-0 bg-white border-b border-gray-200 z-40 shadow-sm">
       <div className="flex items-center justify-between px-4 h-16">
         <Link href="/" className="flex items-center">
           <Image

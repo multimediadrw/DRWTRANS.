@@ -7,6 +7,7 @@ import Navigation from './components/Navigation'
 import MobileHeader from './components/MobileHeader'
 import BottomNav from './components/BottomNav'
 import BookingModal from './components/BookingModal'
+import PWAInstall from './components/PWAInstall'
 import { Search, Shield, Clock, Award, Users, ChevronRight } from 'lucide-react'
 
 export default function HomePage() {
@@ -339,8 +340,11 @@ export default function HomePage() {
         </div>
       </footer>
 
-      {/* Mobile Bottom Navigation */}
+          {/* Bottom Navigation */}
       <BottomNav />
+
+      {/* PWA Install Prompt */}
+      <PWAInstall />
 
       {/* Booking Modal */}
       <BookingModal
