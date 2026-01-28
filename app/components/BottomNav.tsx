@@ -15,7 +15,7 @@ export default function BottomNav() {
   ]
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 z-50 md:hidden">
+    <nav className="fixed bottom-0 left-0 right-0 bg-white shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] z-50">
       <div className="flex justify-around items-center h-16">
         {navItems.map((item) => {
           const Icon = item.icon
@@ -31,8 +31,8 @@ export default function BottomNav() {
                   : 'text-gray-500 hover:text-royal-purple'
               }`}
             >
-              <Icon className={`h-6 w-6 mb-1 ${isActive ? 'stroke-[2.5]' : ''}`} />
-              <span className={`text-xs ${isActive ? 'font-semibold' : 'font-medium'}`}>
+              <Icon className={`h-5 w-5 mb-0.5 ${isActive ? 'stroke-[2.5]' : ''}`} />
+              <span className={`text-[10px] ${isActive ? 'font-semibold' : 'font-medium'}`}>
                 {item.label}
               </span>
             </Link>
