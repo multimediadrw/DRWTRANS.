@@ -7,6 +7,9 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata: Metadata = {
   title: 'DRWTRANS - Layanan Transportasi Bus Terpercaya',
   description: 'Sewa bus medium dan HiAce untuk perjalanan Anda dengan harga terjangkau dan pelayanan profesional',
+  icons: {
+    icon: '/favicon.ico',
+  },
 }
 
 export default function RootLayout({
