@@ -36,4 +36,11 @@
 - [x] Create /public/facilities/ directory
 - [x] Copy and rename all facility photos with descriptive names
 - [x] Update Armada page to display facility gallery
+- [x] Push changes to GitHub
+
+## Pricing Page Creation
+- [x] Create comprehensive pricing page with price table
+- [x] Add route information and minimum rental requirements
+- [x] Add important notes and terms
+- [x] Add bank account details
 - [ ] Push changes to GitHub
