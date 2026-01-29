@@ -79,4 +79,4 @@
 - [x] Create FleetGalleryModal component with swipeable image viewer
 - [x] Add tap handler to fleet hero images
 - [x] Test lightbox functionality (will verify on Vercel)
-- [ ] Push to GitHub
+- [x] Push to GitHub
