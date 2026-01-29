@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import SplashScreen from "./components/SplashScreen";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -29,6 +30,7 @@ export default function RootLayout({
   return (
     <html lang="id">
       <body className={inter.className}>
+        <SplashScreen />
         {/* Desktop: Dark background with centered mobile container */}
         <div className="min-h-screen w-full bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900">
           {/* Mobile-Only Container (480px max) */}

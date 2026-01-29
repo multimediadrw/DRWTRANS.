@@ -173,7 +173,7 @@ export default function ArmadaPage() {
                     <p className="text-lg font-bold text-orange-600">{fleet.price}</p>
                   </div>
                   <a 
-                    href="https://wa.me/6281120508 00?text=Halo%2C%20saya%20tertarik%20dengan%20armada%20DRW%20TRANS"
+                    href="https://wa.me/6281120500800?text=Halo%2C%20saya%20tertarik%20dengan%20armada%20DRW%20TRANS"
                     className="bg-gradient-to-r from-purple-600 to-purple-700 text-white px-6 py-2.5 rounded-xl font-semibold text-sm active:scale-95 transition-transform shadow-md"
                   >
                     Pesan Sekarang
@@ -245,7 +245,7 @@ export default function ArmadaPage() {
                     <p className="text-lg font-bold text-orange-600">{fleet.price}</p>
                   </div>
                   <a 
-                    href="https://wa.me/6281120508 00?text=Halo%2C%20saya%20tertarik%20dengan%20HiAce%20DRW%20TRANS"
+                    href="https://wa.me/6281120500800?text=Halo%2C%20saya%20tertarik%20dengan%20HiAce%20DRW%20TRANS"
                     className="bg-gradient-to-r from-orange-600 to-orange-700 text-white px-6 py-2.5 rounded-xl font-semibold text-sm active:scale-95 transition-transform shadow-md"
                   >
                     Pesan Sekarang

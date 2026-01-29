@@ -19,7 +19,7 @@ export default function MobileHeader() {
         </Link>
         
         <a
-          href="https://wa.me/628112050800"
+          href="https://wa.me/6281120500800"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center justify-center w-10 h-10 rounded-full bg-green-500 hover:bg-green-600 transition-colors"

@@ -105,7 +105,7 @@ export default function HomePage() {
 
   const getWhatsAppLink = (vehicleName: string) => {
     const message = `Halo DRW TRANS, saya tertarik menyewa ${vehicleName}. Mohon info lebih lanjut.`
-    return `https://wa.me/6281120508000?text=${encodeURIComponent(message)}`
+    return `https://wa.me/6281120500800?text=${encodeURIComponent(message)}`
   }
 
   return (

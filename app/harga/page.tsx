@@ -257,11 +257,11 @@ export default function HargaPage() {
             </div>
           </div>
           <a 
-            href="tel:+6281120508000" 
+            href="tel:+6281120500800" 
             className="mt-4 flex items-center justify-center gap-2 bg-amber-gold hover:bg-amber-gold-dark text-white px-6 py-3 rounded-lg font-bold text-sm transition-all active:scale-95 shadow-lg"
           >
             <Phone className="h-4 w-4" />
-            (+62) 811 2050 800
+            (+62) 811 2050 0800
           </a>
         </div>
       </div>
