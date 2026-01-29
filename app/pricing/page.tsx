@@ -26,7 +26,7 @@ export default function PricingPage() {
         </div>
       </nav>
 
-      <section className="bg-gradient-to-br from-purple-600 to-purple-800 text-white py-16 px-4">
+      <section className="bg-gradient-to-br from-purple-600 to-purple-800 text-white py-6 px-4">
         <div className="container mx-auto text-center">
           <Calculator className="h-16 w-16 mx-auto mb-4" />
           <h1 className="text-4xl font-bold mb-4">Daftar Harga Rute</h1>
@@ -34,7 +34,7 @@ export default function PricingPage() {
         </div>
       </section>
 
-      <section className="py-16 px-4">
+      <section className="py-6 px-4">
         <div className="container mx-auto max-w-5xl">
           <div className="bg-purple-50 border border-purple-200 rounded-lg p-6 mb-8">
             <h3 className="font-bold text-lg mb-3">Harga Sudah Termasuk:</h3>

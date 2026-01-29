@@ -23,14 +23,14 @@ export default function FacilitiesPage() {
         </div>
       </nav>
 
-      <section className="bg-gradient-to-br from-purple-600 to-purple-800 text-white py-16 px-4">
+      <section className="bg-gradient-to-br from-purple-600 to-purple-800 text-white py-6 px-4">
         <div className="container mx-auto text-center">
           <h1 className="text-4xl font-bold mb-4">Fasilitas & Kenyamanan</h1>
           <p className="text-xl text-purple-100">Nikmati perjalanan dengan fasilitas lengkap</p>
         </div>
       </section>
 
-      <section className="py-16 px-4">
+      <section className="py-6 px-4">
         <div className="container mx-auto max-w-5xl">
           <div className="grid md:grid-cols-2 gap-8 mb-12">
             <div className="bg-white rounded-lg shadow-lg p-8">

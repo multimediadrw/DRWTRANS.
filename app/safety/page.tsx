@@ -23,7 +23,7 @@ export default function SafetyPage() {
         </div>
       </nav>
 
-      <section className="bg-gradient-to-br from-purple-600 to-purple-800 text-white py-16 px-4">
+      <section className="bg-gradient-to-br from-purple-600 to-purple-800 text-white py-6 px-4">
         <div className="container mx-auto text-center">
           <Shield className="h-16 w-16 mx-auto mb-4" />
           <h1 className="text-4xl font-bold mb-4">Keamanan & Legalitas</h1>
@@ -31,7 +31,7 @@ export default function SafetyPage() {
         </div>
       </section>
 
-      <section className="py-16 px-4">
+      <section className="py-6 px-4">
         <div className="container mx-auto max-w-4xl">
           <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
             <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">

@@ -101,8 +101,8 @@ export default function ArmadaPage() {
     <div className="min-h-screen bg-gray-50 pb-20">
       {/* Header */}
       <div className="bg-gradient-to-br from-purple-900 via-purple-800 to-purple-900 text-white pt-safe">
-        <div className="container px-4 py-8">
-          <div className="flex items-center justify-between mb-6">
+        <div className="container px-4 py-6">
+          <div className="flex items-center justify-between">
             <div>
               <h1 className="text-2xl font-bold mb-1">Armada Kami</h1>
               <p className="text-purple-200 text-sm">Kendaraan terawat & terpercaya</p>
@@ -113,7 +113,7 @@ export default function ArmadaPage() {
       </div>
 
       {/* Bus Fleet Section */}
-      <section className="container px-4 -mt-4">
+      <section className="container px-4 py-6">
         <div className="mb-6 flex items-center gap-2">
           <BusIcon className="h-6 w-6 text-purple-700" />
           <h2 className="text-xl font-bold text-gray-900">Armada Bus</h2>

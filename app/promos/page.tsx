@@ -17,14 +17,14 @@ export default function PromosPage() {
         </div>
       </nav>
 
-      <section className="bg-gradient-to-br from-purple-600 to-purple-800 text-white py-16 px-4">
+      <section className="bg-gradient-to-br from-purple-600 to-purple-800 text-white py-6 px-4">
         <div className="container mx-auto text-center">
           <Tag className="h-16 w-16 mx-auto mb-4" />
           <h1 className="text-4xl font-bold mb-4">Promo & Penawaran Spesial</h1>
         </div>
       </section>
 
-      <section className="py-16 px-4">
+      <section className="py-6 px-4">
         <div className="container mx-auto max-w-5xl">
           {promosData.length > 0 ? (
             <div className="grid md:grid-cols-2 gap-8">

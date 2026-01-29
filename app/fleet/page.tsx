@@ -31,7 +31,7 @@ export default function FleetPage() {
       </nav>
 
       {/* Header */}
-      <section className="bg-gradient-to-br from-purple-600 to-purple-800 text-white py-16 px-4">
+      <section className="bg-gradient-to-br from-purple-600 to-purple-800 text-white py-6 px-4">
         <div className="container mx-auto text-center">
           <h1 className="text-4xl font-bold mb-4">Armada Bus Kami</h1>
           <p className="text-xl text-purple-100">Pilih bus yang sesuai dengan kebutuhan perjalanan Anda</p>
@@ -39,7 +39,7 @@ export default function FleetPage() {
       </section>
 
       {/* Fleet List */}
-      <section className="py-16 px-4">
+      <section className="py-6 px-4">
         <div className="container mx-auto">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {busesData.map((bus) => (
@@ -201,7 +201,7 @@ export default function FleetPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 px-4 bg-gradient-to-br from-purple-600 to-purple-800 text-white">
+      <section className="py-6 px-4 bg-gradient-to-br from-purple-600 to-purple-800 text-white">
         <div className="container mx-auto text-center">
           <h2 className="text-3xl font-bold mb-4">Tertarik dengan Armada Kami?</h2>
           <p className="text-xl mb-8 text-purple-100">Hubungi kami untuk informasi lebih lanjut atau langsung booking sekarang</p>
