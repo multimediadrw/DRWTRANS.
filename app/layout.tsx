@@ -2,12 +2,28 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import LayoutWrapper from "./components/LayoutWrapper";
+import StructuredData from "./components/StructuredData";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "DRW TRANS - Layanan Transportasi Premium",
-  description: "Layanan sewa bus dan transportasi korporat terpercaya",
+  title: "DRW TRANS - Sewa Bus Pariwisata Bandung | PO Bus Terpercaya",
+  description: "DRW TRANS adalah PO Bus terpercaya di Bandung. Melayani sewa bus pariwisata, HiAce, dan Medium Bus untuk perjalanan wisata, study tour, dan corporate trip ke seluruh Indonesia. Armada terawat, driver profesional, harga kompetitif.",
+  keywords: [
+    "sewa bus Bandung",
+    "PO Bus Bandung",
+    "rental bus pariwisata Bandung",
+    "sewa HiAce Bandung",
+    "bus wisata Bandung",
+    "sewa bus murah Bandung",
+    "sewa bus Jakarta",
+    "rental bus study tour",
+    "sewa bus corporate",
+    "DRW TRANS",
+  ],
+  authors: [{ name: "DRW TRANS" }],
+  creator: "DRW TRANS",
+  publisher: "DRW TRANS",
   manifest: "/manifest.json",
   themeColor: "#2E1065",
   viewport: "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0, viewport-fit=cover",
@@ -25,6 +41,42 @@ export const metadata: Metadata = {
     apple: "/apple-touch-icon.png",
     shortcut: "/favicon.ico",
   },
+  openGraph: {
+    type: "website",
+    locale: "id_ID",
+    url: "https://drwtrans.com",
+    siteName: "DRW TRANS",
+    title: "DRW TRANS - Sewa Bus Pariwisata Bandung | PO Bus Terpercaya",
+    description: "DRW TRANS adalah PO Bus terpercaya di Bandung. Melayani sewa bus pariwisata, HiAce, dan Medium Bus untuk perjalanan wisata, study tour, dan corporate trip ke seluruh Indonesia.",
+    images: [
+      {
+        url: "https://drwtrans.com/logo-drwtrans.png",
+        width: 1200,
+        height: 630,
+        alt: "DRW TRANS - Sewa Bus Bandung",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "DRW TRANS - Sewa Bus Pariwisata Bandung",
+    description: "PO Bus terpercaya di Bandung. Sewa bus pariwisata, HiAce, Medium Bus untuk wisata, study tour, corporate trip.",
+    images: ["https://drwtrans.com/logo-drwtrans.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  verification: {
+    google: "your-google-verification-code",
+  },
 };
 
 export default function RootLayout({
@@ -34,6 +86,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="id">
+      <head>
+        <StructuredData />
+      </head>
       <body className={inter.className}>
         <LayoutWrapper>{children}</LayoutWrapper>
       </body>
