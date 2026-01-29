@@ -6,6 +6,7 @@ import Link from 'next/link'
 import BottomNav from './components/BottomNav'
 import BookingModal from './components/BookingModal'
 import PWAInstall from './components/PWAInstall'
+import Testimonials from './components/Testimonials'
 import { Bell, User, Bus, Car, Star, ChevronRight, ChevronDown } from 'lucide-react'
 
 export default function HomePage() {
@@ -301,6 +302,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Testimonials Section */}
+      <Testimonials />
 
       {/* FAQ Accordion */}
       <section className="px-4 mb-8">
