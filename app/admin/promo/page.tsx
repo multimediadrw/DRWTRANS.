@@ -33,6 +33,8 @@ export default function AdminPromoPage() {
   const [isAuthenticated, setIsAuthenticated] = useState(false)
   const [showModal, setShowModal] = useState(false)
   const [editingPromo, setEditingPromo] = useState<Promo | null>(null)
+  const [showDeleteConfirm, setShowDeleteConfirm] = useState(false)
+  const [deleteId, setDeleteId] = useState<number | null>(null)
   
   const [promos, setPromos] = useState<Promo[]>([
     {
@@ -121,8 +123,15 @@ export default function AdminPromoPage() {
   }
 
   const handleDelete = (id: number) => {
-    if (confirm('Yakin ingin menghapus promo ini?')) {
-      setPromos(promos.filter(p => p.id !== id))
+    setDeleteId(id)
+    setShowDeleteConfirm(true)
+  }
+
+  const confirmDelete = () => {
+    if (deleteId) {
+      setPromos(promos.filter(p => p.id !== deleteId))
+      setShowDeleteConfirm(false)
+      setDeleteId(null)
     }
   }
 
@@ -381,6 +390,32 @@ export default function AdminPromoPage() {
               >
                 <Save className="w-5 h-5" />
                 Simpan
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Delete Confirmation Modal */}
+      {showDeleteConfirm && (
+        <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
+          <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full p-6">
+            <h3 className="text-xl font-bold text-gray-900 mb-4">Konfirmasi Hapus</h3>
+            <p className="text-gray-600 mb-6">
+              Apakah Anda yakin ingin menghapus promo ini? Tindakan ini tidak dapat dibatalkan.
+            </p>
+            <div className="flex gap-3">
+              <button
+                onClick={() => setShowDeleteConfirm(false)}
+                className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 font-semibold rounded-xl hover:bg-gray-50 transition-all"
+              >
+                Batal
+              </button>
+              <button
+                onClick={confirmDelete}
+                className="flex-1 px-4 py-2 bg-red-600 text-white font-semibold rounded-xl hover:bg-red-700 transition-all"
+              >
+                Hapus
               </button>
             </div>
           </div>
