@@ -144,8 +144,8 @@ export default function HomePage() {
       </header>
 
       {/* Overlapping Service Menu Card */}
-      <div className="px-4 -mt-12 mb-6 relative z-10">
-        <div className="bg-white rounded-2xl shadow-xl p-4">
+      <div className="px-4 -mt-12 mb-8 relative z-10">
+        <div className="bg-white rounded-xl shadow-md border border-gray-100 p-4">
           <div className="space-y-3">
             {services.map((service, index) => (
               <Link
@@ -163,7 +163,7 @@ export default function HomePage() {
                   <h3 className="font-bold text-base text-gray-900 mb-0.5">
                     {service.label}
                   </h3>
-                  <p className="text-xs text-gray-600">
+                  <p className="text-xs text-gray-500">
                     {service.subtitle}
                   </p>
                 </div>
@@ -177,8 +177,8 @@ export default function HomePage() {
       </div>
 
       {/* Promo Banner with Gradient Overlay */}
-      <section className="mb-6">
-        <div className="px-4 mb-3 flex items-center justify-between">
+      <section className="mb-8">
+        <div className="px-4 mb-4 flex items-center justify-between">
           <h2 className="text-lg font-bold text-gray-900">Promo Spesial</h2>
           <Link href="/promo" className="text-xs text-royal-purple font-semibold flex items-center gap-0.5">
             Lihat Semua
@@ -192,7 +192,7 @@ export default function HomePage() {
               key={promo.id}
               className={`flex-shrink-0 w-[85%] snap-center ${index === 0 ? 'pl-4' : ''} ${index === promos.length - 1 ? 'pr-4' : ''}`}
             >
-              <div className="relative aspect-[16/9] rounded-2xl overflow-hidden shadow-lg">
+              <div className="relative aspect-[16/9] rounded-xl overflow-hidden shadow-md border border-gray-100">
                 {/* Background Image */}
                 <div className={`absolute inset-0 bg-gradient-to-r ${promo.color}`} />
                 
@@ -215,8 +215,8 @@ export default function HomePage() {
       </section>
 
       {/* Armada Favorit with WhatsApp Links */}
-      <section className="px-4 mb-6">
-        <div className="mb-3 flex items-center justify-between">
+      <section className="px-4 mb-8">
+        <div className="mb-4 flex items-center justify-between">
           <h2 className="text-lg font-bold text-gray-900">Armada Favorit</h2>
           <Link href="/armada" className="text-xs text-royal-purple font-semibold flex items-center gap-0.5">
             Lihat Semua
@@ -228,10 +228,10 @@ export default function HomePage() {
           {armada.map((item) => (
             <div
               key={item.id}
-              className="bg-white rounded-2xl shadow-sm overflow-hidden no-select"
+              className="bg-white rounded-xl shadow-md border border-gray-100 overflow-hidden no-select"
             >
               {/* Full Width Image */}
-              <div className="relative w-full h-32 bg-gray-200">
+              <div className="relative w-full aspect-[4/3] bg-gray-200">
                 <Image
                   src={item.image}
                   alt={item.name}
@@ -245,7 +245,7 @@ export default function HomePage() {
                 <div className="flex items-start justify-between gap-2 mb-3">
                   <div className="flex-1 min-w-0">
                     <h3 className="font-bold text-base text-gray-900 mb-1 truncate">{item.name}</h3>
-                    <p className="text-xs text-gray-600">{item.seats} • AC • Audio</p>
+                    <p className="text-xs text-gray-500">{item.seats} • AC • Audio</p>
                   </div>
                   
                   {/* Rating */}
@@ -259,7 +259,7 @@ export default function HomePage() {
                 {/* Price & WhatsApp Button */}
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-[10px] text-gray-500 mb-0.5">Mulai dari</p>
+                    <p className="text-xs text-gray-500 mb-0.5">Mulai dari</p>
                     <p className="text-lg font-bold text-orange-600">{item.price}</p>
                   </div>
                   
@@ -283,8 +283,8 @@ export default function HomePage() {
       </section>
 
       {/* FAQ Accordion */}
-      <section className="px-4 mb-6">
-        <div className="mb-3">
+      <section className="px-4 mb-8">
+        <div className="mb-4">
           <h2 className="text-lg font-bold text-gray-900">Pertanyaan Umum</h2>
         </div>
 
@@ -292,7 +292,7 @@ export default function HomePage() {
           {faqs.map((faq) => (
             <div
               key={faq.id}
-              className="bg-white rounded-xl shadow-sm overflow-hidden"
+              className="bg-white rounded-xl shadow-md border border-gray-100 overflow-hidden"
             >
               <button
                 onClick={() => setExpandedFaq(expandedFaq === faq.id ? null : faq.id)}
@@ -315,7 +315,7 @@ export default function HomePage() {
                     : 'max-h-0 opacity-0'
                 }`}
               >
-                <div className="px-4 pb-4 text-sm text-gray-600 leading-relaxed">
+                <div className="px-4 pb-4 text-sm text-gray-500 leading-relaxed">
                   {faq.answer}
                 </div>
               </div>
@@ -325,8 +325,8 @@ export default function HomePage() {
       </section>
 
       {/* Destinasi Populer */}
-      <section className="px-4 mb-6">
-        <div className="mb-3">
+      <section className="px-4 mb-8">
+        <div className="mb-4">
           <h2 className="text-lg font-bold text-gray-900">Destinasi Populer</h2>
         </div>
 
@@ -342,7 +342,7 @@ export default function HomePage() {
               href="/promo"
               className="block active:scale-95 transition-transform"
             >
-              <div className={`h-28 rounded-2xl bg-gradient-to-br ${dest.color} p-4 flex flex-col justify-end shadow-sm no-select`}>
+              <div className={`h-28 rounded-xl bg-gradient-to-br ${dest.color} p-4 flex flex-col justify-end shadow-md border border-gray-100 no-select`}>
                 <h3 className="text-white font-bold text-base drop-shadow-lg">{dest.name}</h3>
                 <p className="text-white/95 text-xs drop-shadow-md">{dest.trips}</p>
               </div>

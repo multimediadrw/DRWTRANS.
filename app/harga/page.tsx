@@ -110,8 +110,8 @@ export default function HargaPage() {
       </header>
 
       {/* Route Selector */}
-      <div className="px-4 -mt-4 mb-6 relative z-10">
-        <div className="bg-white rounded-2xl shadow-xl p-3">
+      <div className="px-4 -mt-4 mb-8 relative z-10">
+        <div className="bg-white rounded-xl shadow-md border border-gray-100 p-3">
           <div className="grid grid-cols-2 gap-2">
             {routes.map((route) => (
               <button
@@ -124,7 +124,7 @@ export default function HargaPage() {
                 }`}
               >
                 <div className="text-sm font-bold">{route.label}</div>
-                <div className={`text-[10px] ${selectedRoute === route.id ? 'text-white/80' : 'text-gray-500'}`}>
+                <div className={`text-xs ${selectedRoute === route.id ? 'text-white/80' : 'text-gray-500'}`}>
                   {route.subtitle}
                 </div>
               </button>
@@ -134,9 +134,9 @@ export default function HargaPage() {
       </div>
 
       {/* Price Cards */}
-      <div className="px-4 space-y-4 mb-6">
+      <div className="px-4 space-y-4 mb-8">
         {priceData.map((item, index) => (
-          <div key={index} className="bg-white rounded-2xl shadow-lg overflow-hidden">
+          <div key={index} className="bg-white rounded-xl shadow-md border border-gray-100 overflow-hidden">
             <div className={`bg-gradient-to-r ${item.color} p-4 text-white`}>
               <h3 className="text-lg font-bold">{item.name}</h3>
               <p className="text-sm opacity-90">{item.seats}</p>
@@ -144,8 +144,8 @@ export default function HargaPage() {
             </div>
             <div className="p-4">
               <div className="flex justify-between items-center">
-                <span className="text-gray-600 text-sm">Harga Sewa</span>
-                <span className="text-2xl font-bold text-amber-gold">
+                <span className="text-gray-500 text-sm">Harga Sewa</span>
+                <span className="text-2xl font-bold text-orange-600">
                   {item.prices[selectedRoute]}
                 </span>
               </div>
@@ -158,17 +158,17 @@ export default function HargaPage() {
       </div>
 
       {/* Minimal Sewa */}
-      <div className="px-4 mb-6">
-        <div className="bg-white rounded-2xl shadow-lg p-4">
-          <h3 className="text-lg font-bold text-royal-purple mb-3 flex items-center gap-2">
+      <div className="px-4 mb-8">
+        <div className="bg-white rounded-xl shadow-md border border-gray-100 p-4">
+          <h3 className="text-lg font-bold text-gray-900 mb-3 flex items-center gap-2">
             <Clock className="h-5 w-5 text-amber-gold" />
             Minimal Sewa Luar Kota
           </h3>
           <div className="space-y-2">
             {minimalSewa.map((item, index) => (
-              <div key={index} className="flex justify-between items-center py-2 border-b last:border-b-0">
+              <div key={index} className="flex justify-between items-center py-2 border-b last:border-b-0 border-gray-100">
                 <span className="text-sm text-gray-700">{item.destination}</span>
-                <span className="text-sm font-bold text-royal-purple">{item.duration}</span>
+                <span className="text-sm font-bold text-gray-900">{item.duration}</span>
               </div>
             ))}
           </div>
@@ -176,24 +176,24 @@ export default function HargaPage() {
       </div>
 
       {/* Bank Account */}
-      <div className="px-4 mb-6">
-        <div className="bg-white rounded-2xl shadow-lg p-4">
-          <h3 className="text-lg font-bold text-royal-purple mb-3 flex items-center gap-2">
+      <div className="px-4 mb-8">
+        <div className="bg-white rounded-xl shadow-md border border-gray-100 p-4">
+          <h3 className="text-lg font-bold text-gray-900 mb-3 flex items-center gap-2">
             <CreditCard className="h-5 w-5 text-amber-gold" />
             Rekening Pembayaran
           </h3>
           <div className="space-y-3">
             <div className="bg-blue-50 p-3 rounded-lg border-l-4 border-blue-500">
-              <p className="text-xs text-gray-600 mb-1">Bank Mandiri</p>
-              <p className="text-lg font-bold text-royal-purple">13000-3434-0011</p>
+              <p className="text-xs text-gray-500 mb-1">Bank Mandiri</p>
+              <p className="text-lg font-bold text-gray-900">13000-3434-0011</p>
             </div>
             <div className="bg-blue-50 p-3 rounded-lg border-l-4 border-blue-500">
-              <p className="text-xs text-gray-600 mb-1">Bank BCA</p>
-              <p className="text-lg font-bold text-royal-purple">7751249865</p>
+              <p className="text-xs text-gray-500 mb-1">Bank BCA</p>
+              <p className="text-lg font-bold text-gray-900">7751249865</p>
             </div>
-            <p className="text-xs text-gray-600">a.n. PT DZAWANI TRAVEL INDONESIA</p>
-            <div className="bg-red-50 border-l-4 border-red-500 p-3 rounded">
-              <p className="text-[10px] text-red-700 font-semibold leading-tight">
+            <p className="text-xs text-gray-500">a.n. PT DZAWANI TRAVEL INDONESIA</p>
+            <div className="bg-red-50 border-l-4 border-red-500 p-3 rounded-lg">
+              <p className="text-xs text-red-700 font-semibold leading-tight">
                 *PERUSAHAAN TIDAK BERTANGGUNG JAWAB TERHADAP SEMUA TRANSAKSI PEMBAYARAN JIKA TIDAK MELALUI AKUN BANK RESMI
               </p>
             </div>
@@ -202,13 +202,13 @@ export default function HargaPage() {
       </div>
 
       {/* Catatan Penting */}
-      <div className="px-4 mb-6">
-        <div className="bg-white rounded-2xl shadow-lg p-4">
+      <div className="px-4 mb-8">
+        <div className="bg-white rounded-xl shadow-md border border-gray-100 p-4">
           <button
             onClick={() => setExpandedNotes(!expandedNotes)}
             className="w-full flex justify-between items-center mb-3"
           >
-            <h3 className="text-lg font-bold text-royal-purple flex items-center gap-2">
+            <h3 className="text-lg font-bold text-gray-900 flex items-center gap-2">
               <AlertCircle className="h-5 w-5 text-amber-gold" />
               Catatan Penting
             </h3>
@@ -221,8 +221,8 @@ export default function HargaPage() {
           {expandedNotes && (
             <ul className="space-y-2">
               {catatanPenting.map((note, index) => (
-                <li key={index} className="flex items-start gap-2 text-xs text-gray-700">
-                  <span className="flex-shrink-0 w-4 h-4 bg-royal-purple text-white rounded-full flex items-center justify-center text-[8px] font-bold mt-0.5">
+                <li key={index} className="flex items-start gap-2 text-xs text-gray-600">
+                  <span className="flex-shrink-0 w-4 h-4 bg-royal-purple text-white rounded-full flex items-center justify-center text-[9px] font-bold mt-0.5">
                     {index + 1}
                   </span>
                   <span className="leading-relaxed">{note}</span>
@@ -234,8 +234,8 @@ export default function HargaPage() {
       </div>
 
       {/* Contact */}
-      <div className="px-4 mb-6">
-        <div className="bg-gradient-to-r from-royal-purple to-royal-purple-dark rounded-2xl shadow-lg p-4 text-white">
+      <div className="px-4 mb-8">
+        <div className="bg-gradient-to-r from-royal-purple to-royal-purple-dark rounded-xl shadow-md border border-gray-100 p-4 text-white">
           <h3 className="text-sm font-bold mb-3 flex items-center gap-2">
             <Building2 className="h-4 w-4 text-amber-gold" />
             Alamat Kantor
