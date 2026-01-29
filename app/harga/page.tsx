@@ -244,15 +244,15 @@ export default function HargaPage() {
             <div>
               <p className="font-semibold text-amber-gold">Head Office</p>
               <p className="text-white/80 leading-relaxed">
-                Jl. Leuwisari IV No 6, Kebonlega<br />
+                Jl. Lewisari IV No 6, Kebon Lega<br />
                 Bojongloa Kidul, Bandung 40253
               </p>
             </div>
             <div>
               <p className="font-semibold text-amber-gold">Pool Office</p>
               <p className="text-white/80 leading-relaxed">
-                Jl. Babakan Cipalik, Parungserab<br />
-                Soreang, Kab. Bandung 40921
+                Jl. Babakan Cipatat, Parungserab<br />
+                Soreang, Kab. Bandung 40911
               </p>
             </div>
           </div>

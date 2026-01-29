@@ -282,6 +282,26 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Tentang Kami */}
+      <section className="px-4 mb-8">
+        <div className="bg-gradient-to-br from-purple-600 to-purple-800 rounded-2xl shadow-lg p-6 text-white">
+          <h2 className="text-xl font-bold mb-3">Tentang DRW TRANS</h2>
+          <p className="text-purple-100 text-sm leading-relaxed mb-4">
+            DRW TRANS adalah perusahaan penyedia layanan transportasi bus yang berlokasi di <span className="font-semibold text-white">Bandung, Jawa Barat</span>. Kami melayani kebutuhan transportasi Anda untuk perjalanan ke seluruh Indonesia dengan armada yang terawat dan driver profesional.
+          </p>
+          <div className="grid grid-cols-2 gap-3 text-sm">
+            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3">
+              <p className="text-purple-200 text-xs mb-1">Head Office</p>
+              <p className="font-semibold text-xs">Bandung, Jawa Barat</p>
+            </div>
+            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3">
+              <p className="text-purple-200 text-xs mb-1">Melayani</p>
+              <p className="font-semibold text-xs">Seluruh Indonesia</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* FAQ Accordion */}
       <section className="px-4 mb-8">
         <div className="mb-4">

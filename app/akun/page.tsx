@@ -196,7 +196,7 @@ export default function AkunPage() {
             </div>
             <div className="flex-1">
               <p className="text-xs text-gray-500 mb-0.5">Alamat</p>
-              <p className="text-sm font-semibold text-gray-900">Jakarta, Indonesia</p>
+              <p className="text-sm font-semibold text-gray-900">Bandung, Jawa Barat</p>
             </div>
           </div>
         </div>

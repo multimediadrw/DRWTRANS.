@@ -55,8 +55,26 @@ export default function ContactPage() {
                     <MapPin className="h-6 w-6 text-purple-600" />
                   </div>
                   <div>
-                    <h3 className="font-bold mb-1">Alamat</h3>
-                    <p className="text-gray-700">Yogyakarta, Indonesia</p>
+                    <h3 className="font-bold mb-1">Head Office</h3>
+                    <p className="text-gray-700">
+                      Jl. Lewisari IV No 6 Kel. Kebon Lega<br />
+                      Kec. Bojongloa Kidul<br />
+                      Kota Bandung - Jawa Barat 40253
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
+                    <MapPin className="h-6 w-6 text-purple-600" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold mb-1">Pool Office</h3>
+                    <p className="text-gray-700">
+                      Jl. Babakan Cipatat, Parungserab<br />
+                      Kec. Soreang<br />
+                      Kab. Bandung - Jawa Barat 40911
+                    </p>
                   </div>
                 </div>
               </div>

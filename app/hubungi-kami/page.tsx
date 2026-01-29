@@ -46,8 +46,18 @@ export default function HubungiKamiPage() {
                     <MapPin className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-lg mb-1">Alamat</h3>
-                    <p className="text-gray-600">Jl. Raya Transportasi No. 123<br />Jakarta Selatan 12345</p>
+                    <h3 className="font-bold text-lg mb-1">Head Office</h3>
+                    <p className="text-gray-600">Jl. Lewisari IV No 6, Kebon Lega<br />Bojongloa Kidul, Bandung 40253</p>
+                  </div>
+                </div>
+
+                <div className="flex gap-4">
+                  <div className="w-12 h-12 bg-royal-purple rounded-full flex items-center justify-center flex-shrink-0">
+                    <MapPin className="h-6 w-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-lg mb-1">Pool Office</h3>
+                    <p className="text-gray-600">Jl. Babakan Cipatat, Parungserab<br />Soreang, Kab. Bandung 40911</p>
                   </div>
                 </div>
 
