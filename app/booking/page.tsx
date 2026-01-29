@@ -43,7 +43,7 @@ ${formData.specialRequests || '-'}
 
 Mohon konfirmasi ketersediaan dan harga. Terima kasih!`
 
-    const whatsappNumber = '081120500800'
+    const whatsappNumber = '081120508000'
     const whatsappUrl = `https://wa.me/${whatsappNumber.replace(/^0/, '62')}?text=${encodeURIComponent(message)}`
     
     window.open(whatsappUrl, '_blank')

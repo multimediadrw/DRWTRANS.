@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { Bus, Phone, Mail, MapPin, MessageCircle } from 'lucide-react'
 
 export default function ContactPage() {
-  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '081120500800'
+  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '081120508000'
   const whatsappUrl = `https://wa.me/${whatsappNumber.replace(/^0/, '62')}`
 
   return (
