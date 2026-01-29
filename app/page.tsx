@@ -127,12 +127,12 @@ export default function HomePage() {
 
           {/* Right Icons */}
           <div className="flex items-center gap-2">
-            <button className="w-9 h-9 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
+            <Link href="/notifikasi" className="w-9 h-9 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm hover:bg-white/30 active:scale-95 transition-all">
               <Bell className="w-4 h-4 text-white" />
-            </button>
-            <button className="w-9 h-9 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
+            </Link>
+            <Link href="/akun" className="w-9 h-9 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm hover:bg-white/30 active:scale-95 transition-all">
               <User className="w-4 h-4 text-white" />
-            </button>
+            </Link>
           </div>
         </div>
 
