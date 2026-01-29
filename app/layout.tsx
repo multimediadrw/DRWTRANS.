@@ -17,8 +17,8 @@ export const metadata: Metadata = {
     title: "DRW TRANS",
   },
   icons: {
-    icon: "/logo.png",
-    apple: "/logo.png",
+    icon: "/icon-pwa.png",
+    apple: "/icon-pwa.png",
   },
 };
 

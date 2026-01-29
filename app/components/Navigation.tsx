@@ -14,7 +14,7 @@ export default function Navigation() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
-            <Image src="/logo.png" alt="DRWTRANS" width={50} height={50} className="object-contain" />
+            <Image src="/logo-drwtrans.png" alt="DRWTRANS" width={50} height={50} className="object-contain" />
           </Link>
 
           {/* Desktop Menu */}

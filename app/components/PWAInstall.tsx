@@ -55,7 +55,7 @@ export default function PWAInstall() {
       
       <div className="flex items-start gap-3">
         <div className="flex-shrink-0 w-12 h-12 bg-white rounded-lg p-2">
-          <img src="/logo.png" alt="DRW TRANS" className="w-full h-full object-contain" />
+          <img src="/icon-pwa.png" alt="DRW TRANS" className="w-full h-full object-contain" />
         </div>
         
         <div className="flex-1">

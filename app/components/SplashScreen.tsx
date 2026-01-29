@@ -33,7 +33,7 @@ export default function SplashScreen() {
         {/* Logo */}
         <div className="mb-6 animate-bounce-slow">
           <Image 
-            src="/logo.png" 
+            src="/logo-drwtrans.png" 
             alt="DRW TRANS" 
             width={120}
             height={120}

@@ -10,7 +10,7 @@ export default function MobileHeader() {
       <div className="flex items-center justify-between px-4 h-16">
         <Link href="/" className="flex items-center">
           <Image
-            src="/logo.png"
+            src="/logo-drwtrans.png"
             alt="DRWTRANS"
             width={120}
             height={40}

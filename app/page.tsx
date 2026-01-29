@@ -116,7 +116,7 @@ export default function HomePage() {
           {/* Logo Horizontal - Fixed Aspect Ratio */}
           <div className="flex items-center gap-2">
             <Image 
-              src="/logo.png" 
+              src="/logo-drwtrans.png" 
               alt="DRW TRANS" 
               width={32}
               height={32}
