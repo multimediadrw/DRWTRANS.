@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   creator: "DRW TRANS",
   publisher: "DRW TRANS",
   verification: {
-    google: "HIpc7pz3LCVEu9G1FObhS2R2MPYcQ3l9v9dSY057ZDg",
+    google: "OmE3j4DTMpfigsQokRqbEEy5MpI4kTXdgqWcyOelwnk",
   },
   manifest: "/manifest.json",
   themeColor: "#2E1065",
