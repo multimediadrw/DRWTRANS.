@@ -93,6 +93,7 @@ export default function RootLayout({
   return (
     <html lang="id">
       <head>
+        <meta name="google-site-verification" content="HIpc7pz3LCVEu9G1FObhS2R2MPYcQ3l9v9dSY057ZDg" />
         <StructuredData />
       </head>
       <body className={inter.className}>
