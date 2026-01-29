@@ -6,12 +6,12 @@ import Link from 'next/link'
 import BottomNav from './components/BottomNav'
 import BookingModal from './components/BookingModal'
 import PWAInstall from './components/PWAInstall'
-import Testimonials from './components/Testimonials'
-import { Bell, User, Bus, Car, Star, ChevronRight, ChevronDown } from 'lucide-react'
+import { Bell, User, Bus, Car, Star, ChevronRight, ChevronDown, Quote } from 'lucide-react'
 
 export default function HomePage() {
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false)
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null)
+  const [currentTestimonial, setCurrentTestimonial] = useState(0)
 
   const services = [
     { 
@@ -83,6 +83,33 @@ export default function HomePage() {
       rating: 4.7,
       reviews: 76,
       image: '/hero-bus.jpg',
+    },
+  ]
+
+  const testimonials = [
+    {
+      id: 1,
+      name: "Naimulloh Ahyar",
+      role: "Local Guide",
+      rating: 5,
+      text: "The buses are clean and comfortable. And all crews are very friendly and warm. Salute for Drw Trans. Go bigger, to the best....",
+      date: "2 years ago"
+    },
+    {
+      id: 2,
+      name: "Ari Setya",
+      role: "Customer",
+      rating: 5,
+      text: "Awalnya penasaran... tapi pas dicoba nyaman dan bikin ketagihan. Busnya bagus, baru, fasilitasnya oke, dan sopir serta co-drivernya ramah. Recommended!",
+      date: "2 years ago"
+    },
+    {
+      id: 3,
+      name: "Budi Santoso",
+      role: "Study Tour Organizer",
+      rating: 5,
+      text: "Sudah beberapa kali pakai DRW TRANS untuk study tour sekolah. Pelayanan memuaskan, bus nyaman, driver profesional. Harga juga kompetitif!",
+      date: "1 year ago"
     },
   ]
 
@@ -304,7 +331,76 @@ export default function HomePage() {
       </section>
 
       {/* Testimonials Section */}
-      <Testimonials />
+      <section className="px-4 mb-8">
+        <div className="bg-gradient-to-br from-purple-600 to-purple-800 rounded-2xl p-6 shadow-lg">
+          <div className="flex items-center justify-between mb-4">
+            <div>
+              <h2 className="text-xl font-bold text-white">Testimoni Pelanggan</h2>
+              <div className="flex items-center gap-1 mt-1">
+                <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                <span className="text-white font-semibold">4.5</span>
+                <span className="text-purple-200 text-sm ml-1">(15 reviews)</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="relative">
+            <div className="bg-white rounded-xl p-5 shadow-md min-h-[180px]">
+              <Quote className="w-8 h-8 text-purple-200 mb-3" />
+              <p className="text-gray-700 mb-4 text-sm leading-relaxed">
+                {testimonials[currentTestimonial].text}
+              </p>
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center">
+                    <span className="text-purple-700 font-bold">
+                      {testimonials[currentTestimonial].name.charAt(0)}
+                    </span>
+                  </div>
+                  <div>
+                    <p className="font-semibold text-gray-900 text-sm">
+                      {testimonials[currentTestimonial].name}
+                    </p>
+                    <p className="text-gray-500 text-xs">
+                      {testimonials[currentTestimonial].role} • {testimonials[currentTestimonial].date}
+                    </p>
+                  </div>
+                </div>
+                <div className="flex gap-0.5">
+                  {[...Array(testimonials[currentTestimonial].rating)].map((_, i) => (
+                    <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Navigation Dots */}
+            <div className="flex justify-center gap-2 mt-4">
+              {testimonials.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentTestimonial(index)}
+                  className={`w-2 h-2 rounded-full transition-all ${
+                    index === currentTestimonial
+                      ? 'bg-white w-6'
+                      : 'bg-purple-300'
+                  }`}
+                  aria-label={`Go to testimonial ${index + 1}`}
+                />
+              ))}
+            </div>
+          </div>
+
+          <a
+            href="https://maps.app.goo.gl/nkjLHMShJkXpuaJC8"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block mt-4 text-center text-white text-sm underline hover:text-purple-200 transition-colors"
+          >
+            Lihat semua review di Google Maps →
+          </a>
+        </div>
+      </section>
 
       {/* FAQ Accordion */}
       <section className="px-4 mb-8">
