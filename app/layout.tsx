@@ -1,10 +1,7 @@
-'use client'
-
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import SplashScreen from "./components/SplashScreen";
-import { usePathname } from "next/navigation";
+import LayoutWrapper from "./components/LayoutWrapper";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -30,30 +27,6 @@ export const metadata: Metadata = {
   },
 };
 
-function RootLayoutContent({ children }: { children: React.ReactNode }) {
-  const pathname = usePathname();
-  const isAdminRoute = pathname?.startsWith('/admin');
-
-  // Admin routes: no mobile container, no splash screen
-  if (isAdminRoute) {
-    return <>{children}</>;
-  }
-
-  // Regular routes: mobile container with splash screen
-  return (
-    <>
-      <SplashScreen />
-      {/* Desktop: Dark background with centered mobile container */}
-      <div className="min-h-screen w-full bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900">
-        {/* Mobile-Only Container (480px max) */}
-        <div className="min-h-screen w-full max-w-[480px] mx-auto bg-white shadow-2xl overflow-hidden relative">
-          {children}
-        </div>
-      </div>
-    </>
-  );
-}
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -62,7 +35,7 @@ export default function RootLayout({
   return (
     <html lang="id">
       <body className={inter.className}>
-        <RootLayoutContent>{children}</RootLayoutContent>
+        <LayoutWrapper>{children}</LayoutWrapper>
       </body>
     </html>
   );
