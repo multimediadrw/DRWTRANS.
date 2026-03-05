@@ -1,12 +1,13 @@
 'use client'
-
 import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import BottomNav from './components/BottomNav'
+import Navigation from './components/Navigation'
+import Footer from './components/Footer'
 import BookingModal from './components/BookingModal'
 import PWAInstall from './components/PWAInstall'
-import { Bell, User, Bus, Car, Star, ChevronRight, ChevronDown, Quote } from 'lucide-react'
+import { Bell, User, Bus, Car, Star, ChevronRight, ChevronDown, Quote, Phone, Shield, Clock, MapPin } from 'lucide-react'
 
 export default function HomePage() {
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false)
@@ -14,121 +15,32 @@ export default function HomePage() {
   const [currentTestimonial, setCurrentTestimonial] = useState(0)
 
   const services = [
-    { 
-      icon: Bus, 
-      label: 'Sewa Bus', 
-      subtitle: 'Kapasitas 45-50 Seat',
-      bgColor: 'bg-purple-100', 
-      iconColor: 'text-purple-700', 
-      href: '/bisnis' 
-    },
-    { 
-      icon: Car, 
-      label: 'Sewa HiAce', 
-      subtitle: 'Kapasitas 14 Seat',
-      bgColor: 'bg-orange-100', 
-      iconColor: 'text-orange-700', 
-      href: '/pribadi' 
-    },
+    { icon: Bus, label: 'Sewa Bus', subtitle: 'Kapasitas 45-50 Seat', bgColor: 'bg-purple-100', iconColor: 'text-purple-700', href: '/bisnis' },
+    { icon: Car, label: 'Sewa HiAce', subtitle: 'Kapasitas 14 Seat', bgColor: 'bg-orange-100', iconColor: 'text-orange-700', href: '/pribadi' },
   ]
 
   const promos = [
-    { 
-      id: 1, 
-      title: 'Diskon 20% Sewa Bus', 
-      subtitle: 'Hemat hingga Rp 500.000', 
-      color: 'from-blue-500 to-purple-600',
-      image: '/hero-bus.jpg'
-    },
-    { 
-      id: 2, 
-      title: 'Paket Wisata Hemat', 
-      subtitle: 'Mulai Rp 2 Juta All-In', 
-      color: 'from-green-500 to-teal-600',
-      image: '/hero-bus.jpg'
-    },
-    { 
-      id: 3, 
-      title: 'Promo HiAce Spesial', 
-      subtitle: 'Gratis Driver & BBM', 
-      color: 'from-orange-500 to-red-600',
-      image: '/hero-bus.jpg'
-    },
+    { id: 1, title: 'Diskon 20% Sewa Bus', subtitle: 'Hemat hingga Rp 500.000', color: 'from-blue-500 to-purple-600' },
+    { id: 2, title: 'Paket Wisata Hemat', subtitle: 'Mulai Rp 2 Juta All-In', color: 'from-green-500 to-teal-600' },
+    { id: 3, title: 'Promo HiAce Spesial', subtitle: 'Gratis Driver & BBM', color: 'from-orange-500 to-red-600' },
   ]
 
   const armada = [
-    {
-      id: 1,
-      name: 'Toyota HiAce Premium',
-      seats: '14 Kursi',
-      price: 'Rp 1.500.000',
-      rating: 4.8,
-      reviews: 128,
-      image: '/hero-bus.jpg',
-    },
-    {
-      id: 2,
-      name: 'Medium Bus Luxury',
-      seats: '31 Kursi',
-      price: 'Rp 2.500.000',
-      rating: 4.9,
-      reviews: 95,
-      image: '/hero-bus.jpg',
-    },
-    {
-      id: 3,
-      name: 'Big Bus Executive',
-      seats: '50 Kursi',
-      price: 'Rp 3.500.000',
-      rating: 4.7,
-      reviews: 76,
-      image: '/hero-bus.jpg',
-    },
+    { id: 1, name: 'Toyota HiAce Premium', seats: '14 Kursi', price: 'Rp 1.500.000', rating: 4.8, reviews: 128, image: '/hero-bus.jpg' },
+    { id: 2, name: 'Medium Bus Luxury', seats: '31 Kursi', price: 'Rp 2.500.000', rating: 4.9, reviews: 95, image: '/hero-bus.jpg' },
+    { id: 3, name: 'Big Bus Executive', seats: '50 Kursi', price: 'Rp 3.500.000', rating: 4.7, reviews: 76, image: '/hero-bus.jpg' },
   ]
 
   const testimonials = [
-    {
-      id: 1,
-      name: "Naimulloh Ahyar",
-      role: "Local Guide",
-      rating: 5,
-      text: "The buses are clean and comfortable. And all crews are very friendly and warm. Salute for Drw Trans. Go bigger, to the best....",
-      date: "2 years ago"
-    },
-    {
-      id: 2,
-      name: "Ari Setya",
-      role: "Customer",
-      rating: 5,
-      text: "Awalnya penasaran... tapi pas dicoba nyaman dan bikin ketagihan. Busnya bagus, baru, fasilitasnya oke, dan sopir serta co-drivernya ramah. Recommended!",
-      date: "2 years ago"
-    },
-    {
-      id: 3,
-      name: "Budi Santoso",
-      role: "Study Tour Organizer",
-      rating: 5,
-      text: "Sudah beberapa kali pakai DRW TRANS untuk study tour sekolah. Pelayanan memuaskan, bus nyaman, driver profesional. Harga juga kompetitif!",
-      date: "1 year ago"
-    },
+    { id: 1, name: "Naimulloh Ahyar", role: "Local Guide", rating: 5, text: "The buses are clean and comfortable. And all crews are very friendly and warm. Salute for Drw Trans. Go bigger, to the best....", date: "2 years ago" },
+    { id: 2, name: "Ari Setya", role: "Customer", rating: 5, text: "Awalnya penasaran... tapi pas dicoba nyaman dan bikin ketagihan. Busnya bagus, baru, fasilitasnya oke, dan sopir serta co-drivernya ramah. Recommended!", date: "2 years ago" },
+    { id: 3, name: "Budi Santoso", role: "Study Tour Organizer", rating: 5, text: "Sudah beberapa kali pakai DRW TRANS untuk study tour sekolah. Pelayanan memuaskan, bus nyaman, driver profesional. Harga juga kompetitif!", date: "1 year ago" },
   ]
 
   const faqs = [
-    {
-      id: 1,
-      question: 'Apakah harga sudah termasuk BBM?',
-      answer: 'Ya, harga sewa sudah termasuk BBM, driver, dan tol dalam kota. Untuk perjalanan luar kota, BBM dan tol ditanggung penyewa.'
-    },
-    {
-      id: 2,
-      question: 'Bagaimana cara pembayaran?',
-      answer: 'Pembayaran dapat dilakukan via transfer bank (BCA, Mandiri, BRI) atau tunai. DP 30% saat booking, pelunasan H-1 sebelum keberangkatan.'
-    },
-    {
-      id: 3,
-      question: 'Apakah bisa lepas kunci (tanpa driver)?',
-      answer: 'Maaf, untuk keamanan dan kenyamanan, semua armada kami disewakan dengan driver profesional yang berpengalaman.'
-    },
+    { id: 1, question: 'Apakah harga sudah termasuk BBM?', answer: 'Ya, harga sewa sudah termasuk BBM, driver, dan tol dalam kota. Untuk perjalanan luar kota, BBM dan tol ditanggung penyewa.' },
+    { id: 2, question: 'Bagaimana cara pembayaran?', answer: 'Pembayaran dapat dilakukan via transfer bank (BCA, Mandiri, BRI) atau tunai. DP 30% saat booking, pelunasan H-1 sebelum keberangkatan.' },
+    { id: 3, question: 'Apakah bisa lepas kunci (tanpa driver)?', answer: 'Maaf, untuk keamanan dan kenyamanan, semua armada kami disewakan dengan driver profesional yang berpengalaman.' },
   ]
 
   const getWhatsAppLink = (vehicleName: string) => {
@@ -137,351 +49,481 @@ export default function HomePage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 pb-32 animate-fadeIn">
-      {/* App Header with Safe Area Top */}
-      <header className="bg-gradient-to-b from-royal-purple to-royal-purple-dark h-48 rounded-b-[2.5rem] px-4 pt-[env(safe-area-inset-top,1.5rem)] pb-16">
-        <div className="flex items-center justify-between mb-6 pt-6">
-          {/* Logo Horizontal - Fixed Aspect Ratio */}
-          <div className="flex items-center gap-2">
-            <Image 
-              src="/logo-drwtrans.png" 
-              alt="DRW TRANS" 
-              width={32}
-              height={32}
-              className="h-8 w-auto object-contain"
-            />
-            <span className="text-white font-bold text-lg">DRW TRANS</span>
+    <>
+      {/* ===================== DESKTOP LAYOUT (lg+) ===================== */}
+      <div className="hidden lg:flex lg:flex-col min-h-screen bg-white">
+        <Navigation />
+
+        {/* Hero Section */}
+        <section className="relative min-h-[600px] flex items-center overflow-hidden bg-gradient-to-br from-purple-900 via-purple-800 to-purple-700">
+          <div className="absolute inset-0">
+            <Image src="/hero-bus.jpg" alt="DRW TRANS Bus" fill className="object-cover opacity-20" priority />
           </div>
-
-          {/* Right Icons */}
-          <div className="flex items-center gap-2">
-            <Link href="/notifikasi" className="w-9 h-9 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm hover:bg-white/30 active:scale-95 transition-all">
-              <Bell className="w-4 h-4 text-white" />
-            </Link>
-            <Link href="/akun" className="w-9 h-9 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm hover:bg-white/30 active:scale-95 transition-all">
-              <User className="w-4 h-4 text-white" />
-            </Link>
-          </div>
-        </div>
-
-        {/* Greeting */}
-        <div className="text-white">
-          <h1 className="text-xl font-bold mb-1">Hai, Sahabat DRW 👋</h1>
-          <p className="text-sm text-white/80">Mau pergi ke mana hari ini?</p>
-        </div>
-      </header>
-
-      {/* Overlapping Service Menu Card */}
-      <div className="px-4 -mt-12 mb-8 relative z-10">
-        <div className="bg-white rounded-xl shadow-md border border-gray-100 p-4">
-          <div className="space-y-3">
-            {services.map((service, index) => (
-              <Link
-                key={index}
-                href={service.href}
-                className="flex items-center gap-4 p-4 rounded-xl bg-gray-50 hover:bg-gray-100 active:scale-95 transition-all no-select"
-              >
-                {/* Left: Icon Circle */}
-                <div className={`w-14 h-14 ${service.bgColor} rounded-full flex items-center justify-center flex-shrink-0`}>
-                  <service.icon className={`w-7 h-7 ${service.iconColor}`} strokeWidth={2} />
-                </div>
-
-                {/* Center: Title & Subtitle */}
-                <div className="flex-1 min-w-0">
-                  <h3 className="font-bold text-base text-gray-900 mb-0.5">
-                    {service.label}
-                  </h3>
-                  <p className="text-xs text-gray-500">
-                    {service.subtitle}
-                  </p>
-                </div>
-
-                {/* Right: Arrow */}
-                <ChevronRight className="w-5 h-5 text-gray-400 flex-shrink-0" />
-              </Link>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Promo Banner with Gradient Overlay */}
-      <section className="mb-8">
-        <div className="px-4 mb-4 flex items-center justify-between">
-          <h2 className="text-lg font-bold text-gray-900">Promo Spesial</h2>
-          <Link href="/promo" className="text-xs text-royal-purple font-semibold flex items-center gap-0.5">
-            Lihat Semua
-            <ChevronRight className="w-3 h-3" />
-          </Link>
-        </div>
-        
-        <div className="flex gap-3 overflow-x-auto pb-2 snap-x snap-mandatory scrollbar-hide">
-          {promos.map((promo, index) => (
-            <div
-              key={promo.id}
-              className={`flex-shrink-0 w-[85%] snap-center ${index === 0 ? 'pl-4' : ''} ${index === promos.length - 1 ? 'pr-4' : ''}`}
-            >
-              <div className="relative aspect-[16/9] rounded-xl overflow-hidden shadow-md border border-gray-100">
-                {/* Background Image */}
-                <div className={`absolute inset-0 bg-gradient-to-r ${promo.color}`} />
-                
-                {/* Gradient Overlay for Text Readability */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
-                
-                {/* Content */}
-                <div className="relative h-full p-5 flex flex-col justify-end no-select">
-                  <h3 className="text-white font-bold text-base mb-1 drop-shadow-lg">
-                    {promo.title}
-                  </h3>
-                  <p className="text-white/95 text-xs drop-shadow-md">
-                    {promo.subtitle}
-                  </p>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Armada Favorit with WhatsApp Links */}
-      <section className="px-4 mb-8">
-        <div className="mb-4 flex items-center justify-between">
-          <h2 className="text-lg font-bold text-gray-900">Armada Favorit</h2>
-          <Link href="/armada" className="text-xs text-royal-purple font-semibold flex items-center gap-0.5">
-            Lihat Semua
-            <ChevronRight className="w-3 h-3" />
-          </Link>
-        </div>
-
-        <div className="space-y-3">
-          {armada.map((item) => (
-            <div
-              key={item.id}
-              className="bg-white rounded-xl shadow-md border border-gray-100 overflow-hidden no-select"
-            >
-              {/* Full Width Image */}
-              <div className="relative w-full aspect-[4/3] bg-gray-200">
-                <Image
-                  src={item.image}
-                  alt={item.name}
-                  fill
-                  className="object-cover"
-                />
-              </div>
-
-              {/* Content */}
-              <div className="p-4">
-                <div className="flex items-start justify-between gap-2 mb-3">
-                  <div className="flex-1 min-w-0">
-                    <h3 className="font-bold text-base text-gray-900 mb-1 truncate">{item.name}</h3>
-                    <p className="text-xs text-gray-500">{item.seats} • AC • Audio</p>
-                  </div>
-                  
-                  {/* Rating */}
-                  <div className="flex items-center gap-1 flex-shrink-0">
-                    <Star className="w-3 h-3 fill-amber-gold text-amber-gold" />
-                    <span className="text-xs font-semibold text-gray-900">{item.rating}</span>
-                    <span className="text-xs text-gray-400">({item.reviews})</span>
-                  </div>
-                </div>
-
-                {/* Price & WhatsApp Button */}
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="text-xs text-gray-500 mb-0.5">Mulai dari</p>
-                    <p className="text-lg font-bold text-orange-600">{item.price}</p>
-                  </div>
-                  
-                  {/* WhatsApp Button */}
-                  <a
-                    href={getWhatsAppLink(item.name)}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-4 py-2 bg-green-500 hover:bg-green-600 active:scale-95 text-white text-xs font-semibold rounded-lg transition-all flex items-center gap-1.5"
-                  >
-                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-                    </svg>
-                    Pesan
-                  </a>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Tentang Kami */}
-      <section className="px-4 mb-8">
-        <div className="bg-gradient-to-br from-purple-600 to-purple-800 rounded-2xl shadow-lg p-6 text-white">
-          <h2 className="text-xl font-bold mb-3">Tentang DRW TRANS</h2>
-          <p className="text-purple-100 text-sm leading-relaxed mb-4">
-            DRW TRANS adalah perusahaan penyedia layanan transportasi bus yang berlokasi di <span className="font-semibold text-white">Bandung, Jawa Barat</span>. Kami melayani kebutuhan transportasi Anda untuk perjalanan ke seluruh Indonesia dengan armada yang terawat dan driver profesional.
-          </p>
-          <div className="grid grid-cols-2 gap-3 text-sm">
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3">
-              <p className="text-purple-200 text-xs mb-1">Head Office</p>
-              <p className="font-semibold text-xs">Bandung, Jawa Barat</p>
-            </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3">
-              <p className="text-purple-200 text-xs mb-1">Melayani</p>
-              <p className="font-semibold text-xs">Seluruh Indonesia</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials Section */}
-      <section className="px-4 mb-8">
-        <div className="bg-gradient-to-br from-purple-600 to-purple-800 rounded-2xl p-6 shadow-lg">
-          <div className="flex items-center justify-between mb-4">
-            <div>
-              <h2 className="text-xl font-bold text-white">Testimoni Pelanggan</h2>
-              <div className="flex items-center gap-1 mt-1">
+          <div className="absolute inset-0 bg-gradient-to-r from-purple-900/90 via-purple-800/70 to-transparent" />
+          <div className="relative container mx-auto px-6 py-20">
+            <div className="max-w-2xl">
+              <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 text-white text-sm mb-6">
                 <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                <span className="text-white font-semibold">4.5</span>
-                <span className="text-purple-200 text-sm ml-1">(15 reviews)</span>
+                <span>Transportasi Bus Terpercaya di Bandung</span>
+              </div>
+              <h1 className="text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
+                Perjalanan Nyaman<br />
+                <span className="text-amber-400">Bersama DRW TRANS</span>
+              </h1>
+              <p className="text-xl text-white/80 mb-8 leading-relaxed">
+                Layanan sewa bus dan HiAce premium untuk perjalanan wisata, korporat, dan keluarga ke seluruh Indonesia.
+              </p>
+              <div className="flex gap-4">
+                <Link href="/pemesanan" className="bg-amber-400 hover:bg-amber-500 text-gray-900 font-bold px-8 py-4 rounded-xl text-lg transition-all shadow-lg hover:shadow-xl">
+                  Pesan Sekarang
+                </Link>
+                <Link href="/armada" className="border-2 border-white/40 hover:border-white text-white font-bold px-8 py-4 rounded-xl text-lg transition-all backdrop-blur-sm">
+                  Lihat Armada
+                </Link>
+              </div>
+              <div className="flex gap-10 mt-12">
+                <div><p className="text-3xl font-bold text-white">500+</p><p className="text-white/60 text-sm">Trip Selesai</p></div>
+                <div><p className="text-3xl font-bold text-white">4.8</p><p className="text-white/60 text-sm">Rating Google</p></div>
+                <div><p className="text-3xl font-bold text-white">10+</p><p className="text-white/60 text-sm">Tahun Pengalaman</p></div>
               </div>
             </div>
           </div>
+        </section>
 
-          <div className="relative">
-            <div className="bg-white rounded-xl p-5 shadow-md min-h-[180px]">
-              <Quote className="w-8 h-8 text-purple-200 mb-3" />
-              <p className="text-gray-700 mb-4 text-sm leading-relaxed">
-                {testimonials[currentTestimonial].text}
-              </p>
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center">
-                    <span className="text-purple-700 font-bold">
-                      {testimonials[currentTestimonial].name.charAt(0)}
-                    </span>
-                  </div>
-                  <div>
-                    <p className="font-semibold text-gray-900 text-sm">
-                      {testimonials[currentTestimonial].name}
-                    </p>
-                    <p className="text-gray-500 text-xs">
-                      {testimonials[currentTestimonial].role} • {testimonials[currentTestimonial].date}
-                    </p>
-                  </div>
-                </div>
-                <div className="flex gap-0.5">
-                  {[...Array(testimonials[currentTestimonial].rating)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                  ))}
-                </div>
-              </div>
+        {/* Services */}
+        <section className="py-16 bg-gray-50">
+          <div className="container mx-auto px-6">
+            <div className="text-center mb-10">
+              <h2 className="text-3xl font-bold text-gray-900 mb-3">Layanan Kami</h2>
+              <p className="text-gray-500 text-lg">Solusi transportasi untuk setiap kebutuhan Anda</p>
             </div>
-
-            {/* Navigation Dots */}
-            <div className="flex justify-center gap-2 mt-4">
-              {testimonials.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentTestimonial(index)}
-                  className={`w-2 h-2 rounded-full transition-all ${
-                    index === currentTestimonial
-                      ? 'bg-white w-6'
-                      : 'bg-purple-300'
-                  }`}
-                  aria-label={`Go to testimonial ${index + 1}`}
-                />
+            <div className="grid grid-cols-2 gap-6 max-w-3xl mx-auto">
+              {services.map((service, index) => (
+                <Link key={index} href={service.href} className="bg-white rounded-2xl p-8 shadow-md border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all group">
+                  <div className={`w-16 h-16 ${service.bgColor} rounded-2xl flex items-center justify-center mb-5`}>
+                    <service.icon className={`w-8 h-8 ${service.iconColor}`} strokeWidth={2} />
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-royal-purple transition-colors">{service.label}</h3>
+                  <p className="text-gray-500">{service.subtitle}</p>
+                  <div className="mt-4 flex items-center gap-1 text-royal-purple font-semibold text-sm">Selengkapnya <ChevronRight className="w-4 h-4" /></div>
+                </Link>
               ))}
             </div>
           </div>
+        </section>
 
-          <a
-            href="https://maps.app.goo.gl/nkjLHMShJkXpuaJC8"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block mt-4 text-center text-white text-sm underline hover:text-purple-200 transition-colors"
-          >
-            Lihat semua review di Google Maps →
-          </a>
+        {/* Why Choose Us */}
+        <section className="py-16 bg-white">
+          <div className="container mx-auto px-6">
+            <div className="text-center mb-10">
+              <h2 className="text-3xl font-bold text-gray-900 mb-3">Mengapa Pilih DRW TRANS?</h2>
+              <p className="text-gray-500 text-lg">Keunggulan yang membedakan kami dari yang lain</p>
+            </div>
+            <div className="grid grid-cols-3 gap-6">
+              <div className="text-center p-6">
+                <div className="w-14 h-14 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4"><Shield className="w-7 h-7 text-purple-700" /></div>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">Aman & Terpercaya</h3>
+                <p className="text-gray-500 text-sm leading-relaxed">Armada ber-KIR, STNK aktif, dan driver bersertifikat. Dilengkapi asuransi penumpang.</p>
+              </div>
+              <div className="text-center p-6">
+                <div className="w-14 h-14 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4"><Clock className="w-7 h-7 text-amber-600" /></div>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">Tepat Waktu</h3>
+                <p className="text-gray-500 text-sm leading-relaxed">Kami berkomitmen untuk selalu tepat waktu dalam setiap perjalanan yang kami layani.</p>
+              </div>
+              <div className="text-center p-6">
+                <div className="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4"><MapPin className="w-7 h-7 text-green-700" /></div>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">Jangkauan Luas</h3>
+                <p className="text-gray-500 text-sm leading-relaxed">Melayani perjalanan ke seluruh Indonesia dari Sabang sampai Merauke.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Promo */}
+        <section className="py-16 bg-gray-50">
+          <div className="container mx-auto px-6">
+            <div className="flex items-center justify-between mb-8">
+              <div><h2 className="text-3xl font-bold text-gray-900 mb-1">Promo Spesial</h2><p className="text-gray-500">Penawaran terbaik untuk perjalanan Anda</p></div>
+              <Link href="/promo" className="text-royal-purple font-semibold flex items-center gap-1 hover:underline">Lihat Semua <ChevronRight className="w-4 h-4" /></Link>
+            </div>
+            <div className="grid grid-cols-3 gap-6">
+              {promos.map((promo) => (
+                <Link key={promo.id} href="/promo" className="group">
+                  <div className="relative aspect-[16/9] rounded-2xl overflow-hidden shadow-md">
+                    <div className={`absolute inset-0 bg-gradient-to-r ${promo.color}`} />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+                    <div className="relative h-full p-6 flex flex-col justify-end">
+                      <h3 className="text-white font-bold text-lg mb-1 drop-shadow-lg">{promo.title}</h3>
+                      <p className="text-white/90 text-sm drop-shadow-md">{promo.subtitle}</p>
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Armada */}
+        <section className="py-16 bg-white">
+          <div className="container mx-auto px-6">
+            <div className="flex items-center justify-between mb-8">
+              <div><h2 className="text-3xl font-bold text-gray-900 mb-1">Armada Favorit</h2><p className="text-gray-500">Kendaraan terawat dan nyaman untuk perjalanan Anda</p></div>
+              <Link href="/armada" className="text-royal-purple font-semibold flex items-center gap-1 hover:underline">Lihat Semua <ChevronRight className="w-4 h-4" /></Link>
+            </div>
+            <div className="grid grid-cols-3 gap-6">
+              {armada.map((item) => (
+                <div key={item.id} className="bg-white rounded-2xl shadow-md border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow">
+                  <div className="relative aspect-[4/3]">
+                    <Image src={item.image} alt={item.name} fill className="object-cover" />
+                  </div>
+                  <div className="p-5">
+                    <div className="flex items-start justify-between mb-2">
+                      <h3 className="font-bold text-gray-900">{item.name}</h3>
+                      <div className="flex items-center gap-1 flex-shrink-0 ml-2">
+                        <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+                        <span className="text-xs font-semibold text-gray-700">{item.rating}</span>
+                        <span className="text-xs text-gray-400">({item.reviews})</span>
+                      </div>
+                    </div>
+                    <p className="text-sm text-gray-500 mb-4">{item.seats} • AC • Audio System</p>
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <p className="text-xs text-gray-400">Mulai dari</p>
+                        <p className="text-lg font-bold text-orange-600">{item.price}</p>
+                      </div>
+                      <a href={getWhatsAppLink(item.name)} target="_blank" rel="noopener noreferrer"
+                        className="px-4 py-2 bg-green-500 hover:bg-green-600 text-white text-sm font-semibold rounded-lg transition-all flex items-center gap-1.5">
+                        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                        </svg>
+                        Pesan
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Testimonials */}
+        <section className="py-16 bg-gradient-to-br from-purple-900 to-purple-700">
+          <div className="container mx-auto px-6">
+            <div className="text-center mb-10">
+              <h2 className="text-3xl font-bold text-white mb-2">Testimoni Pelanggan</h2>
+              <div className="flex items-center justify-center gap-2">
+                <Star className="w-5 h-5 fill-yellow-400 text-yellow-400" />
+                <span className="text-white font-bold text-lg">4.8</span>
+                <span className="text-purple-200">(15+ reviews)</span>
+              </div>
+            </div>
+            <div className="grid grid-cols-3 gap-6">
+              {testimonials.map((t) => (
+                <div key={t.id} className="bg-white rounded-2xl p-6 shadow-lg">
+                  <Quote className="w-8 h-8 text-purple-200 mb-3" />
+                  <p className="text-gray-700 text-sm leading-relaxed mb-5">{t.text}</p>
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center">
+                        <span className="text-purple-700 font-bold">{t.name.charAt(0)}</span>
+                      </div>
+                      <div>
+                        <p className="font-semibold text-gray-900 text-sm">{t.name}</p>
+                        <p className="text-gray-400 text-xs">{t.role} • {t.date}</p>
+                      </div>
+                    </div>
+                    <div className="flex gap-0.5">
+                      {[...Array(t.rating)].map((_, i) => (<Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />))}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="text-center mt-8">
+              <a href="https://maps.app.goo.gl/nkjLHMShJkXpuaJC8" target="_blank" rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors text-sm underline">
+                Lihat semua review di Google Maps →
+              </a>
+            </div>
+          </div>
+        </section>
+
+        {/* Destinasi */}
+        <section className="py-16 bg-white">
+          <div className="container mx-auto px-6">
+            <div className="text-center mb-10">
+              <h2 className="text-3xl font-bold text-gray-900 mb-3">Destinasi Populer</h2>
+              <p className="text-gray-500">Kami siap mengantar Anda ke berbagai destinasi</p>
+            </div>
+            <div className="grid grid-cols-4 gap-4">
+              {[
+                { name: 'Bandung', trips: '120+ Trip', color: 'from-blue-500 to-cyan-500' },
+                { name: 'Jakarta', trips: '200+ Trip', color: 'from-purple-500 to-pink-500' },
+                { name: 'Yogyakarta', trips: '95+ Trip', color: 'from-orange-500 to-red-500' },
+                { name: 'Bali', trips: '150+ Trip', color: 'from-green-500 to-teal-500' },
+              ].map((dest, index) => (
+                <Link key={index} href="/promo" className="group">
+                  <div className={`h-40 rounded-2xl bg-gradient-to-br ${dest.color} p-6 flex flex-col justify-end shadow-md hover:shadow-xl hover:-translate-y-1 transition-all`}>
+                    <h3 className="text-white font-bold text-xl drop-shadow-lg">{dest.name}</h3>
+                    <p className="text-white/80 text-sm drop-shadow-md">{dest.trips}</p>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ */}
+        <section className="py-16 bg-gray-50">
+          <div className="container mx-auto px-6 max-w-3xl">
+            <div className="text-center mb-10">
+              <h2 className="text-3xl font-bold text-gray-900 mb-3">Pertanyaan Umum</h2>
+              <p className="text-gray-500">Jawaban untuk pertanyaan yang sering diajukan</p>
+            </div>
+            <div className="space-y-3">
+              {faqs.map((faq) => (
+                <div key={faq.id} className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                  <button onClick={() => setExpandedFaq(expandedFaq === faq.id ? null : faq.id)}
+                    className="w-full px-6 py-5 flex items-center justify-between gap-3 text-left hover:bg-gray-50 transition-colors">
+                    <span className="font-semibold text-gray-900">{faq.question}</span>
+                    <ChevronDown className={`w-5 h-5 text-gray-400 flex-shrink-0 transition-transform ${expandedFaq === faq.id ? 'rotate-180' : ''}`} />
+                  </button>
+                  <div className={`transition-all duration-300 ease-in-out ${expandedFaq === faq.id ? 'max-h-48 opacity-100' : 'max-h-0 opacity-0'}`}>
+                    <div className="px-6 pb-5 text-gray-500 leading-relaxed">{faq.answer}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="text-center mt-8">
+              <Link href="/faq" className="text-royal-purple font-semibold hover:underline">Lihat semua FAQ →</Link>
+            </div>
+          </div>
+        </section>
+
+        {/* CTA */}
+        <section className="py-16 bg-gradient-to-r from-royal-purple to-royal-purple-dark text-white">
+          <div className="container mx-auto px-6 text-center">
+            <h2 className="text-4xl font-bold mb-4">Siap Memulai Perjalanan?</h2>
+            <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">Hubungi kami sekarang untuk mendapatkan penawaran terbaik dan konsultasi gratis</p>
+            <div className="flex gap-4 justify-center">
+              <Link href="/pemesanan" className="bg-amber-400 hover:bg-amber-500 text-gray-900 font-bold px-10 py-4 rounded-xl text-lg transition-all shadow-lg">
+                Pesan Sekarang
+              </Link>
+              <a href="tel:+6281120500800" className="border-2 border-white/40 hover:border-white text-white font-bold px-10 py-4 rounded-xl text-lg transition-all flex items-center gap-2">
+                <Phone className="w-5 h-5" />0811-2050-800
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <Footer />
+      </div>
+
+      {/* ===================== MOBILE LAYOUT (< lg) ===================== */}
+      <div className="lg:hidden min-h-screen bg-gray-50 pb-32 animate-fadeIn">
+        <header className="bg-gradient-to-b from-royal-purple to-royal-purple-dark h-48 rounded-b-[2.5rem] px-4 pt-[env(safe-area-inset-top,1.5rem)] pb-16">
+          <div className="flex items-center justify-between mb-6 pt-6">
+            <div className="flex items-center gap-2">
+              <Image src="/logo-drwtrans.png" alt="DRW TRANS" width={32} height={32} className="h-8 w-auto object-contain" />
+              <span className="text-white font-bold text-lg">DRW TRANS</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Link href="/notifikasi" className="w-9 h-9 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm hover:bg-white/30 active:scale-95 transition-all">
+                <Bell className="w-4 h-4 text-white" />
+              </Link>
+              <Link href="/akun" className="w-9 h-9 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm hover:bg-white/30 active:scale-95 transition-all">
+                <User className="w-4 h-4 text-white" />
+              </Link>
+            </div>
+          </div>
+          <div className="text-white">
+            <h1 className="text-xl font-bold mb-1">Hai, Sahabat DRW 👋</h1>
+            <p className="text-sm text-white/80">Mau pergi ke mana hari ini?</p>
+          </div>
+        </header>
+
+        <div className="px-4 -mt-12 mb-8 relative z-10">
+          <div className="bg-white rounded-xl shadow-md border border-gray-100 p-4">
+            <div className="space-y-3">
+              {services.map((service, index) => (
+                <Link key={index} href={service.href} className="flex items-center gap-4 p-4 rounded-xl bg-gray-50 hover:bg-gray-100 active:scale-95 transition-all no-select">
+                  <div className={`w-14 h-14 ${service.bgColor} rounded-full flex items-center justify-center flex-shrink-0`}>
+                    <service.icon className={`w-7 h-7 ${service.iconColor}`} strokeWidth={2} />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <h3 className="font-bold text-base text-gray-900 mb-0.5">{service.label}</h3>
+                    <p className="text-xs text-gray-500">{service.subtitle}</p>
+                  </div>
+                  <ChevronRight className="w-5 h-5 text-gray-400 flex-shrink-0" />
+                </Link>
+              ))}
+            </div>
+          </div>
         </div>
-      </section>
 
-      {/* FAQ Accordion */}
-      <section className="px-4 mb-8">
-        <div className="mb-4">
-          <h2 className="text-lg font-bold text-gray-900">Pertanyaan Umum</h2>
-        </div>
+        <section className="mb-8">
+          <div className="px-4 mb-4 flex items-center justify-between">
+            <h2 className="text-lg font-bold text-gray-900">Promo Spesial</h2>
+            <Link href="/promo" className="text-xs text-royal-purple font-semibold flex items-center gap-0.5">Lihat Semua<ChevronRight className="w-3 h-3" /></Link>
+          </div>
+          <div className="flex gap-3 overflow-x-auto pb-2 snap-x snap-mandatory scrollbar-hide">
+            {promos.map((promo, index) => (
+              <div key={promo.id} className={`flex-shrink-0 w-[85%] snap-center ${index === 0 ? 'pl-4' : ''} ${index === promos.length - 1 ? 'pr-4' : ''}`}>
+                <div className="relative aspect-[16/9] rounded-xl overflow-hidden shadow-md border border-gray-100">
+                  <div className={`absolute inset-0 bg-gradient-to-r ${promo.color}`} />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+                  <div className="relative h-full p-5 flex flex-col justify-end no-select">
+                    <h3 className="text-white font-bold text-base mb-1 drop-shadow-lg">{promo.title}</h3>
+                    <p className="text-white/95 text-xs drop-shadow-md">{promo.subtitle}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
 
-        <div className="space-y-3">
-          {faqs.map((faq) => (
-            <div
-              key={faq.id}
-              className="bg-white rounded-xl shadow-md border border-gray-100 overflow-hidden"
-            >
-              <button
-                onClick={() => setExpandedFaq(expandedFaq === faq.id ? null : faq.id)}
-                className="w-full px-4 py-4 flex items-center justify-between gap-3 text-left hover:bg-gray-50 active:bg-gray-100 transition-colors"
-              >
-                <span className="font-semibold text-sm text-gray-900 flex-1">
-                  {faq.question}
-                </span>
-                <ChevronDown 
-                  className={`w-5 h-5 text-gray-400 flex-shrink-0 transition-transform ${
-                    expandedFaq === faq.id ? 'rotate-180' : ''
-                  }`}
-                />
-              </button>
-              
-              <div
-                className={`transition-all duration-300 ease-in-out ${
-                  expandedFaq === faq.id 
-                    ? 'max-h-48 opacity-100' 
-                    : 'max-h-0 opacity-0'
-                }`}
-              >
-                <div className="px-4 pb-4 text-sm text-gray-500 leading-relaxed">
-                  {faq.answer}
+        <section className="px-4 mb-8">
+          <div className="mb-4 flex items-center justify-between">
+            <h2 className="text-lg font-bold text-gray-900">Armada Favorit</h2>
+            <Link href="/armada" className="text-xs text-royal-purple font-semibold flex items-center gap-0.5">Lihat Semua<ChevronRight className="w-3 h-3" /></Link>
+          </div>
+          <div className="space-y-3">
+            {armada.map((item) => (
+              <div key={item.id} className="bg-white rounded-xl shadow-md border border-gray-100 overflow-hidden no-select">
+                <div className="relative w-full aspect-[16/9]">
+                  <Image src={item.image} alt={item.name} fill className="object-cover" />
+                </div>
+                <div className="p-4">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="flex-1 min-w-0">
+                      <h3 className="font-bold text-base text-gray-900 mb-1 truncate">{item.name}</h3>
+                      <p className="text-xs text-gray-500">{item.seats} • AC • Audio</p>
+                    </div>
+                    <div className="flex items-center gap-1 flex-shrink-0">
+                      <Star className="w-3 h-3 fill-amber-gold text-amber-gold" />
+                      <span className="text-xs font-semibold text-gray-900">{item.rating}</span>
+                      <span className="text-xs text-gray-400">({item.reviews})</span>
+                    </div>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <p className="text-xs text-gray-500 mb-0.5">Mulai dari</p>
+                      <p className="text-lg font-bold text-orange-600">{item.price}</p>
+                    </div>
+                    <a href={getWhatsAppLink(item.name)} target="_blank" rel="noopener noreferrer"
+                      className="px-4 py-2 bg-green-500 hover:bg-green-600 active:scale-95 text-white text-xs font-semibold rounded-lg transition-all flex items-center gap-1.5">
+                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                      </svg>
+                      Pesan
+                    </a>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="px-4 mb-8">
+          <div className="bg-gradient-to-br from-purple-600 to-purple-800 rounded-2xl shadow-lg p-6 text-white">
+            <h2 className="text-xl font-bold mb-3">Tentang DRW TRANS</h2>
+            <p className="text-purple-100 text-sm leading-relaxed mb-4">
+              DRW TRANS adalah perusahaan penyedia layanan transportasi bus yang berlokasi di <span className="font-semibold text-white">Bandung, Jawa Barat</span>. Kami melayani kebutuhan transportasi Anda untuk perjalanan ke seluruh Indonesia dengan armada yang terawat dan driver profesional.
+            </p>
+            <div className="grid grid-cols-2 gap-3 text-sm">
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3"><p className="text-purple-200 text-xs mb-1">Head Office</p><p className="font-semibold text-xs">Bandung, Jawa Barat</p></div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3"><p className="text-purple-200 text-xs mb-1">Melayani</p><p className="font-semibold text-xs">Seluruh Indonesia</p></div>
+            </div>
+          </div>
+        </section>
+
+        <section className="px-4 mb-8">
+          <div className="bg-gradient-to-br from-purple-600 to-purple-800 rounded-2xl p-6 shadow-lg">
+            <div className="flex items-center justify-between mb-4">
+              <div>
+                <h2 className="text-xl font-bold text-white">Testimoni Pelanggan</h2>
+                <div className="flex items-center gap-1 mt-1">
+                  <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                  <span className="text-white font-semibold">4.5</span>
+                  <span className="text-purple-200 text-sm ml-1">(15 reviews)</span>
                 </div>
               </div>
             </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Destinasi Populer */}
-      <section className="px-4 mb-8">
-        <div className="mb-4">
-          <h2 className="text-lg font-bold text-gray-900">Destinasi Populer</h2>
-        </div>
-
-        <div className="grid grid-cols-2 gap-3">
-          {[
-            { name: 'Bandung', trips: '120+ Trip', color: 'from-blue-500 to-cyan-500' },
-            { name: 'Jakarta', trips: '200+ Trip', color: 'from-purple-500 to-pink-500' },
-            { name: 'Yogyakarta', trips: '95+ Trip', color: 'from-orange-500 to-red-500' },
-            { name: 'Bali', trips: '150+ Trip', color: 'from-green-500 to-teal-500' },
-          ].map((dest, index) => (
-            <Link
-              key={index}
-              href="/promo"
-              className="block active:scale-95 transition-transform"
-            >
-              <div className={`h-28 rounded-xl bg-gradient-to-br ${dest.color} p-4 flex flex-col justify-end shadow-md border border-gray-100 no-select`}>
-                <h3 className="text-white font-bold text-base drop-shadow-lg">{dest.name}</h3>
-                <p className="text-white/95 text-xs drop-shadow-md">{dest.trips}</p>
+            <div className="relative">
+              <div className="bg-white rounded-xl p-5 shadow-md min-h-[180px]">
+                <Quote className="w-8 h-8 text-purple-200 mb-3" />
+                <p className="text-gray-700 mb-4 text-sm leading-relaxed">{testimonials[currentTestimonial].text}</p>
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center">
+                      <span className="text-purple-700 font-bold">{testimonials[currentTestimonial].name.charAt(0)}</span>
+                    </div>
+                    <div>
+                      <p className="font-semibold text-gray-900 text-sm">{testimonials[currentTestimonial].name}</p>
+                      <p className="text-gray-500 text-xs">{testimonials[currentTestimonial].role} • {testimonials[currentTestimonial].date}</p>
+                    </div>
+                  </div>
+                  <div className="flex gap-0.5">
+                    {[...Array(testimonials[currentTestimonial].rating)].map((_, i) => (<Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />))}
+                  </div>
+                </div>
               </div>
-            </Link>
-          ))}
-        </div>
-      </section>
+              <div className="flex justify-center gap-2 mt-4">
+                {testimonials.map((_, index) => (
+                  <button key={index} onClick={() => setCurrentTestimonial(index)}
+                    className={`w-2 h-2 rounded-full transition-all ${index === currentTestimonial ? 'bg-white w-6' : 'bg-purple-300'}`}
+                    aria-label={`Go to testimonial ${index + 1}`} />
+                ))}
+              </div>
+            </div>
+            <a href="https://maps.app.goo.gl/nkjLHMShJkXpuaJC8" target="_blank" rel="noopener noreferrer"
+              className="block mt-4 text-center text-white text-sm underline hover:text-purple-200 transition-colors">
+              Lihat semua review di Google Maps →
+            </a>
+          </div>
+        </section>
 
-      {/* Bottom Navigation */}
-      <BottomNav />
+        <section className="px-4 mb-8">
+          <div className="mb-4"><h2 className="text-lg font-bold text-gray-900">Pertanyaan Umum</h2></div>
+          <div className="space-y-3">
+            {faqs.map((faq) => (
+              <div key={faq.id} className="bg-white rounded-xl shadow-md border border-gray-100 overflow-hidden">
+                <button onClick={() => setExpandedFaq(expandedFaq === faq.id ? null : faq.id)}
+                  className="w-full px-4 py-4 flex items-center justify-between gap-3 text-left hover:bg-gray-50 active:bg-gray-100 transition-colors">
+                  <span className="font-semibold text-sm text-gray-900 flex-1">{faq.question}</span>
+                  <ChevronDown className={`w-5 h-5 text-gray-400 flex-shrink-0 transition-transform ${expandedFaq === faq.id ? 'rotate-180' : ''}`} />
+                </button>
+                <div className={`transition-all duration-300 ease-in-out ${expandedFaq === faq.id ? 'max-h-48 opacity-100' : 'max-h-0 opacity-0'}`}>
+                  <div className="px-4 pb-4 text-sm text-gray-500 leading-relaxed">{faq.answer}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
 
-      {/* PWA Install Prompt */}
-      <PWAInstall />
+        <section className="px-4 mb-8">
+          <div className="mb-4"><h2 className="text-lg font-bold text-gray-900">Destinasi Populer</h2></div>
+          <div className="grid grid-cols-2 gap-3">
+            {[
+              { name: 'Bandung', trips: '120+ Trip', color: 'from-blue-500 to-cyan-500' },
+              { name: 'Jakarta', trips: '200+ Trip', color: 'from-purple-500 to-pink-500' },
+              { name: 'Yogyakarta', trips: '95+ Trip', color: 'from-orange-500 to-red-500' },
+              { name: 'Bali', trips: '150+ Trip', color: 'from-green-500 to-teal-500' },
+            ].map((dest, index) => (
+              <Link key={index} href="/promo" className="block active:scale-95 transition-transform">
+                <div className={`h-28 rounded-xl bg-gradient-to-br ${dest.color} p-4 flex flex-col justify-end shadow-md border border-gray-100 no-select`}>
+                  <h3 className="text-white font-bold text-base drop-shadow-lg">{dest.name}</h3>
+                  <p className="text-white/95 text-xs drop-shadow-md">{dest.trips}</p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
 
-      {/* Booking Modal */}
-      <BookingModal
-        isOpen={isBookingModalOpen}
-        onClose={() => setIsBookingModalOpen(false)}
-      />
-    </div>
+        <BottomNav />
+        <PWAInstall />
+        <BookingModal isOpen={isBookingModalOpen} onClose={() => setIsBookingModalOpen(false)} />
+      </div>
+    </>
   )
 }

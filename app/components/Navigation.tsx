@@ -9,7 +9,7 @@ export default function Navigation() {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
 
   return (
-    <nav className="bg-white shadow-md sticky top-0 z-50 border-b border-gray-200">
+    <nav className="hidden lg:block bg-white shadow-md sticky top-0 z-50 border-b border-gray-200">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}

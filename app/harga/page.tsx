@@ -2,6 +2,8 @@
 
 import { useState } from 'react'
 import BottomNav from '../components/BottomNav'
+import Navigation from '../components/Navigation'
+import Footer from '../components/Footer'
 import { MapPin, Clock, AlertCircle, CreditCard, Building2, Phone, ChevronDown, ChevronUp } from 'lucide-react'
 
 export default function HargaPage() {
@@ -101,18 +103,20 @@ export default function HargaPage() {
 
   return (
     <div className="min-h-screen bg-gray-50 pb-32 animate-fadeIn">
+      {/* Desktop Navigation */}
+      <Navigation />
       {/* Header */}
-      <header className="bg-gradient-to-b from-royal-purple to-royal-purple-dark px-4 pt-[env(safe-area-inset-top,1.5rem)] pb-6">
-        <div className="pt-6">
-          <h1 className="text-2xl font-bold text-white mb-1">Daftar Harga</h1>
-          <p className="text-sm text-white/80">Pilih rute dan lihat harga armada</p>
+      <header className="bg-gradient-to-b from-royal-purple to-royal-purple-dark px-4 lg:px-6 pt-[env(safe-area-inset-top,1.5rem)] lg:pt-0 pb-6 lg:py-16">
+        <div className="pt-6 lg:pt-0 lg:container lg:mx-auto">
+          <h1 className="text-2xl lg:text-4xl font-bold text-white mb-1">Daftar Harga</h1>
+          <p className="text-sm lg:text-lg text-white/80">Pilih rute dan lihat harga armada</p>
         </div>
       </header>
 
       {/* Route Selector */}
-      <div className="px-4 -mt-4 mb-8 relative z-10">
+      <div className="px-4 lg:px-6 lg:container lg:mx-auto -mt-4 lg:mt-8 mb-8 relative z-10">
         <div className="bg-white rounded-xl shadow-md border border-gray-100 p-3">
-          <div className="grid grid-cols-2 gap-2">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-2">
             {routes.map((route) => (
               <button
                 key={route.id}
@@ -134,7 +138,7 @@ export default function HargaPage() {
       </div>
 
       {/* Price Cards */}
-      <div className="px-4 space-y-4 mb-8">
+      <div className="px-4 lg:px-6 lg:container lg:mx-auto space-y-4 lg:grid lg:grid-cols-3 lg:gap-6 lg:space-y-0 mb-8">
         {priceData.map((item, index) => (
           <div key={index} className="bg-white rounded-xl shadow-md border border-gray-100 overflow-hidden">
             <div className={`bg-gradient-to-r ${item.color} p-4 text-white`}>
@@ -158,7 +162,7 @@ export default function HargaPage() {
       </div>
 
       {/* Minimal Sewa */}
-      <div className="px-4 mb-8">
+      <div className="px-4 lg:px-6 lg:container lg:mx-auto mb-8">
         <div className="bg-white rounded-xl shadow-md border border-gray-100 p-4">
           <h3 className="text-lg font-bold text-gray-900 mb-3 flex items-center gap-2">
             <Clock className="h-5 w-5 text-amber-gold" />
@@ -176,7 +180,7 @@ export default function HargaPage() {
       </div>
 
       {/* Bank Account */}
-      <div className="px-4 mb-8">
+      <div className="px-4 lg:px-6 lg:container lg:mx-auto mb-8">
         <div className="bg-white rounded-xl shadow-md border border-gray-100 p-4">
           <h3 className="text-lg font-bold text-gray-900 mb-3 flex items-center gap-2">
             <CreditCard className="h-5 w-5 text-amber-gold" />
@@ -202,7 +206,7 @@ export default function HargaPage() {
       </div>
 
       {/* Catatan Penting */}
-      <div className="px-4 mb-8">
+      <div className="px-4 lg:px-6 lg:container lg:mx-auto mb-8">
         <div className="bg-white rounded-xl shadow-md border border-gray-100 p-4">
           <button
             onClick={() => setExpandedNotes(!expandedNotes)}
@@ -234,7 +238,7 @@ export default function HargaPage() {
       </div>
 
       {/* Contact */}
-      <div className="px-4 mb-8">
+      <div className="px-4 lg:px-6 lg:container lg:mx-auto mb-8">
         <div className="bg-gradient-to-r from-royal-purple to-royal-purple-dark rounded-xl shadow-md border border-gray-100 p-4 text-white">
           <h3 className="text-sm font-bold mb-3 flex items-center gap-2">
             <Building2 className="h-4 w-4 text-amber-gold" />
@@ -267,6 +271,7 @@ export default function HargaPage() {
       </div>
 
       <BottomNav />
+      <Footer />
     </div>
   )
 }

@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Navigation from '../components/Navigation'
+import Footer from '../components/Footer'
 import FleetGalleryModal from '../components/FleetGalleryModal'
 import Image from 'next/image'
 import { Users, Wind, Tv, Wifi, Shield, Zap, Coffee, Luggage, MapPin, Bus as BusIcon, Car } from 'lucide-react'
@@ -99,26 +100,28 @@ export default function ArmadaPage() {
 
   return (
     <div className="min-h-screen bg-gray-50 pb-20">
+      {/* Desktop Navigation */}
+      <Navigation />
       {/* Header */}
       <div className="bg-gradient-to-br from-purple-900 via-purple-800 to-purple-900 text-white pt-safe">
-        <div className="container px-4 py-6">
+        <div className="container px-4 lg:px-6 py-6 lg:py-16">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-2xl font-bold mb-1">Armada Kami</h1>
-              <p className="text-purple-200 text-sm">Kendaraan terawat & terpercaya</p>
+              <h1 className="text-2xl lg:text-4xl font-bold mb-1">Armada Kami</h1>
+              <p className="text-purple-200 text-sm lg:text-lg">Kendaraan terawat & terpercaya untuk perjalanan Anda</p>
             </div>
-            <MapPin className="h-8 w-8 text-purple-300" />
+            <MapPin className="h-8 w-8 lg:h-12 lg:w-12 text-purple-300" />
           </div>
         </div>
       </div>
 
       {/* Bus Fleet Section */}
-      <section className="container px-4 py-6">
+      <section className="container px-4 lg:px-6 py-6 lg:py-12">
         <div className="mb-6 flex items-center gap-2">
           <BusIcon className="h-6 w-6 text-purple-700" />
           <h2 className="text-xl font-bold text-gray-900">Armada Bus</h2>
         </div>
-        <div className="space-y-4 mb-8">
+        <div className="space-y-4 lg:grid lg:grid-cols-2 lg:gap-6 lg:space-y-0 mb-8">
           {busFleets.map((fleet, index) => (
             <div key={index} className="bg-white rounded-xl shadow-md overflow-hidden border border-gray-100 active:scale-98 transition-transform">
               {/* Hero Image */}
@@ -186,12 +189,12 @@ export default function ArmadaPage() {
       </section>
 
       {/* HiAce Fleet Section */}
-      <section className="container px-4">
+      <section className="container px-4 lg:px-6">
         <div className="mb-6 flex items-center gap-2">
           <Car className="h-6 w-6 text-orange-700" />
           <h2 className="text-xl font-bold text-gray-900">Armada HiAce</h2>
         </div>
-        <div className="space-y-4 mb-8">
+        <div className="space-y-4 lg:grid lg:grid-cols-2 lg:gap-6 lg:space-y-0 mb-8">
           {hiaceFleets.map((fleet, index) => (
             <div key={index} className="bg-white rounded-xl shadow-md overflow-hidden border border-gray-100 active:scale-98 transition-transform">
               {/* Hero Image */}
@@ -259,7 +262,7 @@ export default function ArmadaPage() {
         {/* HiAce Gallery */}
         <div className="mt-8 mb-8">
           <h3 className="text-lg font-bold text-gray-900 mb-4 text-center">Galeri Foto HiAce</h3>
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
             {hiaceGallery.map((item, index) => (
               <div key={index} className="bg-white rounded-xl overflow-hidden shadow-md border border-gray-100">
                 <div className="aspect-square relative">
@@ -280,7 +283,7 @@ export default function ArmadaPage() {
       </section>
 
       {/* Facility Gallery */}
-      <section className="container px-4 mt-8">
+      <section className="container px-4 lg:px-6 mt-8">
         <div className="text-center mb-8">
           <h2 className="text-2xl font-bold text-gray-900 mb-2">Fasilitas Premium</h2>
           <p className="text-gray-500 text-sm">Kenyamanan dan keamanan prioritas kami</p>
@@ -292,7 +295,7 @@ export default function ArmadaPage() {
             <Shield className="h-5 w-5 text-amber-500" />
             Keamanan
           </h3>
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
             {facilities.safety.map((item, index) => (
               <div key={index} className="bg-white rounded-xl overflow-hidden shadow-md border border-gray-100">
                 <div className="aspect-square relative">
@@ -317,7 +320,7 @@ export default function ArmadaPage() {
             <Users className="h-5 w-5 text-amber-500" />
             Kenyamanan
           </h3>
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
             {facilities.comfort.map((item, index) => (
               <div key={index} className="bg-white rounded-xl overflow-hidden shadow-md border border-gray-100">
                 <div className="aspect-square relative">
@@ -342,7 +345,7 @@ export default function ArmadaPage() {
             <Zap className="h-5 w-5 text-amber-500" />
             Teknologi
           </h3>
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
             {facilities.technology.map((item, index) => (
               <div key={index} className="bg-white rounded-xl overflow-hidden shadow-md border border-gray-100">
                 <div className="aspect-square relative">
@@ -367,7 +370,7 @@ export default function ArmadaPage() {
             <Luggage className="h-5 w-5 text-amber-500" />
             Penyimpanan
           </h3>
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
             {facilities.storage.map((item, index) => (
               <div key={index} className="bg-white rounded-xl overflow-hidden shadow-md border border-gray-100">
                 <div className="aspect-square relative">
@@ -389,7 +392,7 @@ export default function ArmadaPage() {
         {/* Interior & Exterior Gallery (Bus) */}
         <div className="mt-8">
           <h3 className="text-lg font-bold text-gray-900 mb-4 text-center">Galeri Bus</h3>
-          <div className="grid grid-cols-1 gap-3">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-3">
             <div className="relative aspect-video rounded-xl overflow-hidden shadow-md border border-gray-100">
               <Image 
                 src="/facilities/bus-interior-full.jpg" 
@@ -418,6 +421,8 @@ export default function ArmadaPage() {
         </div>
       </section>
 
+      {/* Footer */}
+      <Footer />
       {/* Fleet Gallery Modal */}
       <FleetGalleryModal
         isOpen={selectedFleet !== null}
