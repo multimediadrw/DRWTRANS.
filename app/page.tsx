@@ -139,29 +139,6 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Promo */}
-        <section className="py-16 bg-gray-50">
-          <div className="container mx-auto px-6">
-            <div className="flex items-center justify-between mb-8">
-              <div><h2 className="text-3xl font-bold text-gray-900 mb-1">Promo Spesial</h2><p className="text-gray-500">Penawaran terbaik untuk perjalanan Anda</p></div>
-              <Link href="/promo" className="text-royal-purple font-semibold flex items-center gap-1 hover:underline">Lihat Semua <ChevronRight className="w-4 h-4" /></Link>
-            </div>
-            <div className="grid grid-cols-3 gap-6">
-              {promos.map((promo) => (
-                <Link key={promo.id} href="/promo" className="group">
-                  <div className="relative aspect-[16/9] rounded-2xl overflow-hidden shadow-md">
-                    <div className={`absolute inset-0 bg-gradient-to-r ${promo.color}`} />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
-                    <div className="relative h-full p-6 flex flex-col justify-end">
-                      <h3 className="text-white font-bold text-lg mb-1 drop-shadow-lg">{promo.title}</h3>
-                      <p className="text-white/90 text-sm drop-shadow-md">{promo.subtitle}</p>
-                    </div>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </section>
 
         {/* Armada */}
         <section className="py-16 bg-white">
@@ -361,26 +338,6 @@ export default function HomePage() {
           </div>
         </div>
 
-        <section className="mb-8">
-          <div className="px-4 mb-4 flex items-center justify-between">
-            <h2 className="text-lg font-bold text-gray-900">Promo Spesial</h2>
-            <Link href="/promo" className="text-xs text-royal-purple font-semibold flex items-center gap-0.5">Lihat Semua<ChevronRight className="w-3 h-3" /></Link>
-          </div>
-          <div className="flex gap-3 overflow-x-auto pb-2 snap-x snap-mandatory scrollbar-hide">
-            {promos.map((promo, index) => (
-              <div key={promo.id} className={`flex-shrink-0 w-[85%] snap-center ${index === 0 ? 'pl-4' : ''} ${index === promos.length - 1 ? 'pr-4' : ''}`}>
-                <div className="relative aspect-[16/9] rounded-xl overflow-hidden shadow-md border border-gray-100">
-                  <div className={`absolute inset-0 bg-gradient-to-r ${promo.color}`} />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
-                  <div className="relative h-full p-5 flex flex-col justify-end no-select">
-                    <h3 className="text-white font-bold text-base mb-1 drop-shadow-lg">{promo.title}</h3>
-                    <p className="text-white/95 text-xs drop-shadow-md">{promo.subtitle}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
 
         <section className="px-4 mb-8">
           <div className="mb-4 flex items-center justify-between">
